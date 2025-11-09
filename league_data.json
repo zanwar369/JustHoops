@@ -3,336 +3,335 @@
     "finalStandings": [
       {
         "team": "Wolfpack",
-        "division": 2.0,
+        "division": "2",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 58.0,
         "points_against": 57.0,
         "point_diff": 1.0,
-        "Score": 1001.0,
+        "Score": 1001,
         "rank": 2.0
       },
       {
         "team": "Lifetime Allstars",
-        "division": 2.0,
+        "division": "2",
         "wins": 1.0,
         "losses": 1.0,
         "win_percent": 0.5,
         "points_for": 131.0,
         "points_against": 120.0,
         "point_diff": 11.0,
-        "Score": 511.0,
+        "Score": 511,
         "rank": 3.0
       },
       {
         "team": "Kingsmen",
-        "division": 2.0,
+        "division": "2",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 70.0,
         "points_against": 80.0,
         "point_diff": -10.0,
-        "Score": -10.0,
+        "Score": -10,
         "rank": 4.0
       },
       {
         "team": "Sparks",
-        "division": 2.0,
+        "division": "2",
         "wins": 2.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 139.0,
         "points_against": 126.0,
         "point_diff": 13.0,
-        "Score": 1013.0,
+        "Score": 1013,
         "rank": 1.0
       },
       {
         "team": "Asadullah",
-        "division": 2.0,
+        "division": "2",
         "wins": 0.0,
         "losses": 2.0,
         "win_percent": 0.0,
         "points_for": 118.0,
         "points_against": 133.0,
         "point_diff": -15.0,
-        "Score": -15.0,
+        "Score": -15,
         "rank": 5.0
       },
       {
-        "team": NaN,
-        "division": NaN,
+        "team": "",
+        "division": "",
         "wins": 0.0,
         "losses": 0.0,
         "win_percent": 0.0,
         "points_for": 0.0,
         "points_against": 0.0,
         "point_diff": 0.0,
-        "Score": NaN,
+        "Score": "",
         "rank": 0.0
       },
       {
         "team": "Run and Gun",
-        "division": 3.0,
+        "division": "3",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 56.0,
         "points_against": 53.0,
         "point_diff": 3.0,
-        "Score": 1003.0,
+        "Score": 1003,
         "rank": 2.0
       },
       {
         "team": "Fry City",
-        "division": 3.0,
+        "division": "3",
         "wins": 1.0,
         "losses": 1.0,
         "win_percent": 0.5,
         "points_for": 108.0,
         "points_against": 117.0,
         "point_diff": -9.0,
-        "Score": 491.0,
+        "Score": 491,
         "rank": 3.0
       },
       {
         "team": "Noor Knights",
-        "division": 3.0,
+        "division": "3",
         "wins": 2.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 125.0,
         "points_against": 108.0,
         "point_diff": 17.0,
-        "Score": 1017.0,
+        "Score": 1017,
         "rank": 1.0
       },
       {
         "team": "Puff Puff Pass",
-        "division": 3.0,
+        "division": "3",
         "wins": 0.0,
         "losses": 2.0,
         "win_percent": 0.0,
         "points_for": 113.0,
         "points_against": 118.0,
         "point_diff": -5.0,
-        "Score": -5.0,
+        "Score": -5,
         "rank": 4.0
       },
       {
         "team": "Just Hoops",
-        "division": 3.0,
+        "division": "3",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 54.0,
         "points_against": 60.0,
         "point_diff": -6.0,
-        "Score": -6.0,
+        "Score": -6,
         "rank": 5.0
       },
       {
-        "team": NaN,
-        "division": NaN,
+        "team": "",
+        "division": "",
         "wins": 0.0,
         "losses": 0.0,
         "win_percent": 0.0,
         "points_for": 0.0,
         "points_against": 0.0,
         "point_diff": 0.0,
-        "Score": NaN,
+        "Score": "",
         "rank": 0.0
       },
       {
         "team": "Pillow Island",
-        "division": 4.0,
+        "division": "4",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 47.0,
         "points_against": 48.0,
         "point_diff": -1.0,
-        "Score": -1.0,
+        "Score": -1,
         "rank": 5.0
       },
       {
         "team": "Brunson Burners",
-        "division": 4.0,
+        "division": "4",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 42.0,
         "points_against": 45.0,
         "point_diff": -3.0,
-        "Score": -3.0,
+        "Score": -3,
         "rank": 6.0
       },
       {
         "team": "Caliphs",
-        "division": 4.0,
+        "division": "4",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 71.0,
         "points_against": 40.0,
         "point_diff": 31.0,
-        "Score": 1031.0,
+        "Score": 1031,
         "rank": 1.0
       },
       {
         "team": "Bullets",
-        "division": 4.0,
+        "division": "4",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 48.0,
         "points_against": 47.0,
         "point_diff": 1.0,
-        "Score": 1001.0,
+        "Score": 1001,
         "rank": 3.0
       },
       {
         "team": "The Air Ballers",
-        "division": 4.0,
+        "division": "4",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 40.0,
         "points_against": 71.0,
         "point_diff": -31.0,
-        "Score": -31.0,
+        "Score": -31,
         "rank": 7.0
       },
       {
         "team": "Kabul Lions",
-        "division": 4.0,
+        "division": "4",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 45.0,
         "points_against": 42.0,
         "point_diff": 3.0,
-        "Score": 1003.0,
+        "Score": 1003,
         "rank": 2.0
       },
       {
         "team": "Broadway Hoops Club",
-        "division": 4.0,
+        "division": "4",
         "wins": 0.0,
         "losses": 0.0,
         "win_percent": 0.0,
         "points_for": 0.0,
         "points_against": 0.0,
         "point_diff": 0.0,
-        "Score": 0.0,
+        "Score": 0,
         "rank": 4.0
       },
       {
-        "team": NaN,
-        "division": NaN,
+        "team": "",
+        "division": "",
         "wins": 0.0,
         "losses": 0.0,
         "win_percent": 0.0,
         "points_for": 0.0,
         "points_against": 0.0,
         "point_diff": 0.0,
-        "Score": NaN,
+        "Score": "",
         "rank": 0.0
       },
       {
         "team": "Buzzin BC",
-        "division": 5.0,
+        "division": "5",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 46.0,
         "points_against": 36.0,
         "point_diff": 10.0,
-        "Score": 1010.0,
+        "Score": 1010,
         "rank": 1.0
       },
       {
         "team": "Wolves",
-        "division": 5.0,
+        "division": "5",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 45.0,
         "points_against": 38.0,
         "point_diff": 7.0,
-        "Score": 1007.0,
+        "Score": 1007,
         "rank": 3.0
       },
       {
         "team": "Ummah Elite",
-        "division": 5.0,
+        "division": "5",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 55.0,
         "points_against": 63.0,
         "point_diff": -8.0,
-        "Score": -8.0,
+        "Score": -8,
         "rank": 6.0
       },
       {
         "team": "Starving",
-        "division": 5.0,
+        "division": "5",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 36.0,
         "points_against": 46.0,
         "point_diff": -10.0,
-        "Score": -10.0,
+        "Score": -10,
         "rank": 7.0
       },
       {
         "team": "Redemption",
-        "division": 5.0,
+        "division": "5",
         "wins": 1.0,
         "losses": 0.0,
         "win_percent": 1.0,
         "points_for": 63.0,
         "points_against": 55.0,
         "point_diff": 8.0,
-        "Score": 1008.0,
+        "Score": 1008,
         "rank": 2.0
       },
       {
         "team": "Pindies",
-        "division": 5.0,
+        "division": "5",
         "wins": 0.0,
         "losses": 1.0,
         "win_percent": 0.0,
         "points_for": 38.0,
         "points_against": 45.0,
         "point_diff": -7.0,
-        "Score": -7.0,
+        "Score": -7,
         "rank": 5.0
       },
       {
         "team": "Clutch Society",
-        "division": 5.0,
+        "division": "5",
         "wins": 0.0,
         "losses": 0.0,
         "win_percent": 0.0,
         "points_for": 0.0,
         "points_against": 0.0,
         "point_diff": 0.0,
-        "Score": 0.0,
+        "Score": 0,
         "rank": 4.0
       }
     ],
     "playerGameLogs": [
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 34.0,
+        "jersey": "34",
         "name": "Sy",
         "totalpoints": 15.0,
         "ftm": 0.0,
@@ -351,14 +350,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 74.0
+        "Team Score": 74
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 41.0,
+        "jersey": "41",
         "name": "Ant",
         "totalpoints": 18.0,
         "ftm": 0.0,
@@ -377,14 +375,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 74.0
+        "Team Score": 74
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "JC",
         "totalpoints": 14.0,
         "ftm": 1.0,
@@ -403,14 +400,13 @@
         "steals": 2.0,
         "turnovers": 2.0,
         "fouls": 1.0,
-        "Team Score": 74.0
+        "Team Score": 74
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Chris",
         "totalpoints": 18.0,
         "ftm": 1.0,
@@ -429,14 +425,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 74.0
+        "Team Score": 74
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 91.0,
+        "jersey": "91",
         "name": "Sult",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -455,15 +450,14 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 74.0
+        "Team Score": 74
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -481,14 +475,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 2.0,
+        "jersey": "2",
         "name": "Yousaf",
         "totalpoints": 32.0,
         "ftm": 1.0,
@@ -507,14 +500,13 @@
         "steals": 5.0,
         "turnovers": 1.0,
         "fouls": 3.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Abdu",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -533,14 +525,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Khan",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -559,14 +550,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Rizwan",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -585,14 +575,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Syed",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -611,14 +600,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Rahman",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -637,14 +625,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 8.0,
+        "jersey": "8",
         "name": "Faiz",
         "totalpoints": 13.0,
         "ftm": 0.0,
@@ -663,14 +650,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 92.0,
+        "jersey": "92",
         "name": "Shah",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -689,15 +675,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -715,14 +700,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 28.0,
+        "jersey": "28",
         "name": "Omed",
         "totalpoints": 8.0,
         "ftm": 0.0,
@@ -741,14 +725,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 9.0,
+        "jersey": "9",
         "name": "Sunny",
         "totalpoints": 19.0,
         "ftm": 3.0,
@@ -767,14 +750,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 550.0,
+        "jersey": "550",
         "name": "David",
         "totalpoints": 19.0,
         "ftm": 0.0,
@@ -793,14 +775,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 55.0,
+        "jersey": "55",
         "name": "Joe",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -819,14 +800,13 @@
         "steals": 1.0,
         "turnovers": 2.0,
         "fouls": 0.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "MoQ",
         "totalpoints": 10.0,
         "ftm": 1.0,
@@ -845,14 +825,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 3.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Goose",
         "totalpoints": 14.0,
         "ftm": 0.0,
@@ -871,15 +850,14 @@
         "steals": 1.0,
         "turnovers": 2.0,
         "fouls": 0.0,
-        "Team Score": 80.0
+        "Team Score": 80
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -897,14 +875,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Kibriz",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -923,14 +900,13 @@
         "steals": 1.0,
         "turnovers": 3.0,
         "fouls": 3.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Taha",
         "totalpoints": 22.0,
         "ftm": 0.0,
@@ -949,14 +925,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 14.0,
+        "jersey": "14",
         "name": "Shabeer",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -975,14 +950,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 7.0,
+        "jersey": "7",
         "name": "Calvin",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -1001,14 +975,13 @@
         "steals": 2.0,
         "turnovers": 0.0,
         "fouls": 4.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Ornell",
         "totalpoints": 24.0,
         "ftm": 0.0,
@@ -1027,14 +1000,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 31.0,
+        "jersey": "31",
         "name": "Tommy",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -1053,14 +1025,13 @@
         "steals": 2.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": 2.0,
+        "division": "2",
         "team": "Kingsmen",
-        "Unnamed: 3": "2Kingsmen",
-        "jersey": 56.0,
+        "jersey": "56",
         "name": "Ali",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -1079,15 +1050,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 70.0
+        "Team Score": 70
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -1105,14 +1075,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 6.0,
+        "jersey": "6",
         "name": "Nav",
         "totalpoints": 8.0,
         "ftm": 1.0,
@@ -1131,14 +1100,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 53.0
+        "Team Score": 53
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 13.0,
+        "jersey": "13",
         "name": "Dil",
         "totalpoints": 13.0,
         "ftm": 0.0,
@@ -1157,14 +1125,13 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 2.0,
-        "Team Score": 53.0
+        "Team Score": 53
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 9.0,
+        "jersey": "9",
         "name": "Qas",
         "totalpoints": 16.0,
         "ftm": 0.0,
@@ -1183,14 +1150,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 53.0
+        "Team Score": 53
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Aash",
         "totalpoints": 13.0,
         "ftm": 1.0,
@@ -1209,14 +1175,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 53.0
+        "Team Score": 53
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Nahin",
         "totalpoints": 3.0,
         "ftm": 1.0,
@@ -1235,15 +1200,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 53.0
+        "Team Score": 53
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -1261,14 +1225,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "ED",
         "totalpoints": 16.0,
         "ftm": 0.0,
@@ -1287,14 +1250,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 12.0,
+        "jersey": "12",
         "name": "Deju",
         "totalpoints": 8.0,
         "ftm": 0.0,
@@ -1313,14 +1275,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Lah",
         "totalpoints": 11.0,
         "ftm": 0.0,
@@ -1339,14 +1300,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Nick",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -1365,14 +1325,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Fronz",
         "totalpoints": 8.0,
         "ftm": 2.0,
@@ -1391,14 +1350,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Izzy",
         "totalpoints": 5.0,
         "ftm": 2.0,
@@ -1417,14 +1375,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 22.0,
+        "jersey": "22",
         "name": "Brad",
         "totalpoints": 6.0,
         "ftm": 1.0,
@@ -1443,14 +1400,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Run and Gun",
-        "Unnamed: 3": "3Run and Gun",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Brandon",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -1469,15 +1425,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -1495,14 +1450,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Avneet",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -1521,14 +1475,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 13.0,
+        "jersey": "13",
         "name": "Sanbir",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -1547,14 +1500,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "Visc",
         "totalpoints": 21.0,
         "ftm": 3.0,
@@ -1573,14 +1525,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Dan",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -1599,14 +1550,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 4.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Frank",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -1625,14 +1575,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "Parm",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -1651,14 +1600,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "Darsh",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -1677,14 +1625,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 111.0,
+        "jersey": "111",
         "name": "Rick",
         "totalpoints": 8.0,
         "ftm": 0.0,
@@ -1703,15 +1650,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -1729,14 +1675,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Waqar",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -1755,14 +1700,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Atif",
         "totalpoints": 10.0,
         "ftm": 1.0,
@@ -1781,14 +1725,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 34.0,
+        "jersey": "34",
         "name": "Bhatti",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -1807,14 +1750,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 4.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 0.0,
+        "jersey": "00",
         "name": "Tian",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -1833,14 +1775,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 17.0,
+        "jersey": "17",
         "name": "Rafiq",
         "totalpoints": 18.0,
         "ftm": 3.0,
@@ -1859,14 +1800,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Shahiq",
         "totalpoints": 22.0,
         "ftm": 0.0,
@@ -1885,15 +1825,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -1911,14 +1850,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "Ali",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -1937,14 +1875,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Goldy",
         "totalpoints": 19.0,
         "ftm": 2.0,
@@ -1963,14 +1900,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "Blake",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -1989,14 +1925,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "E",
         "totalpoints": 20.0,
         "ftm": 1.0,
@@ -2015,14 +1950,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 30.0,
+        "jersey": "30",
         "name": "Babar",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -2041,14 +1975,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Bullets",
-        "Unnamed: 3": "4Bullets",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "Zeef",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -2067,15 +2000,14 @@
         "steals": 4.0,
         "turnovers": 2.0,
         "fouls": 2.0,
-        "Team Score": 48.0
+        "Team Score": 48
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -2093,14 +2025,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Zohaib",
         "totalpoints": 11.0,
         "ftm": 1.0,
@@ -2119,14 +2050,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 75.0,
+        "jersey": "75",
         "name": "Jack",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -2145,14 +2075,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Arman",
         "totalpoints": 4.0,
         "ftm": 1.0,
@@ -2171,14 +2100,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Ani",
         "totalpoints": 15.0,
         "ftm": 0.0,
@@ -2197,14 +2125,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Reggie",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -2223,14 +2150,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 3.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 19.0,
+        "jersey": "19",
         "name": "Freddy",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -2249,14 +2175,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Pillow Island",
-        "Unnamed: 3": "4Pillow Island",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Tauseef",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -2275,15 +2200,14 @@
         "steals": 2.0,
         "turnovers": 0.0,
         "fouls": 4.0,
-        "Team Score": 47.0
+        "Team Score": 47
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -2301,14 +2225,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 14.0,
+        "jersey": "14",
         "name": "Munir",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -2327,14 +2250,13 @@
         "steals": 2.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Zamer",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -2353,14 +2275,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 16.0,
+        "jersey": "16",
         "name": "Neiko",
         "totalpoints": 9.0,
         "ftm": 1.0,
@@ -2379,14 +2300,13 @@
         "steals": 2.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 33.0,
+        "jersey": "33",
         "name": "Eric",
         "totalpoints": 11.0,
         "ftm": 0.0,
@@ -2405,14 +2325,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Robail",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -2431,14 +2350,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Starving",
-        "Unnamed: 3": "5Starving",
-        "jersey": 14.0,
+        "jersey": "14",
         "name": "Frank",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -2457,15 +2375,14 @@
         "steals": 1.0,
         "turnovers": 2.0,
         "fouls": 2.0,
-        "Team Score": 36.0
+        "Team Score": 36
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -2483,14 +2400,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Joey",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -2509,14 +2425,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 7.0,
+        "jersey": "7",
         "name": "Justin",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -2535,14 +2450,13 @@
         "steals": 3.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 30.0,
+        "jersey": "30",
         "name": "Yusuf",
         "totalpoints": 14.0,
         "ftm": 0.0,
@@ -2561,14 +2475,13 @@
         "steals": 2.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 22.0,
+        "jersey": "22",
         "name": "Dariel",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -2587,14 +2500,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Ish",
         "totalpoints": 5.0,
         "ftm": 1.0,
@@ -2613,14 +2525,13 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 1.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 77.0,
+        "jersey": "77",
         "name": "Sal",
         "totalpoints": 12.0,
         "ftm": 0.0,
@@ -2639,14 +2550,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Buzzin BC",
-        "Unnamed: 3": "5Buzzin BC",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Will",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -2665,15 +2575,14 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 46.0
+        "Team Score": 46
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -2691,14 +2600,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Cody",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -2717,14 +2625,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 35.0,
+        "jersey": "35",
         "name": "Ricky",
         "totalpoints": 24.0,
         "ftm": 5.0,
@@ -2743,14 +2650,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 7.0,
+        "jersey": "7",
         "name": "Dhilina",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -2769,14 +2675,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 12.0,
+        "jersey": "12",
         "name": "Justin",
         "totalpoints": 8.0,
         "ftm": 4.0,
@@ -2795,14 +2700,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 14.0,
+        "jersey": "14",
         "name": "Brian",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -2821,14 +2725,13 @@
         "steals": 2.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Wolves",
-        "Unnamed: 3": "5Wolves",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Tayo",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -2847,15 +2750,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -2873,14 +2775,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 7.0,
+        "jersey": "7",
         "name": "Ismael",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -2899,14 +2800,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "Rashid",
         "totalpoints": 16.0,
         "ftm": 2.0,
@@ -2925,14 +2825,13 @@
         "steals": 1.0,
         "turnovers": 3.0,
         "fouls": 0.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Yussef",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -2951,14 +2850,13 @@
         "steals": 1.0,
         "turnovers": 2.0,
         "fouls": 5.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 7.0,
+        "jersey": "7",
         "name": "Haroon",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -2977,14 +2875,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 9.0,
+        "jersey": "9",
         "name": "Rayhan",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -3003,14 +2900,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Pindies",
-        "Unnamed: 3": "5Pindies",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Jimmy",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -3029,15 +2925,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 38.0
+        "Team Score": 38
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -3055,14 +2950,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 13.0,
+        "jersey": "13",
         "name": "AR Majid",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -3081,14 +2975,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Ahmed C",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -3107,14 +3000,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 6.0,
+        "jersey": "6",
         "name": "Noureldin",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -3133,14 +3025,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Samir",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -3159,14 +3050,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Hollen",
         "totalpoints": 8.0,
         "ftm": 0.0,
@@ -3185,14 +3075,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "The Air Ballers",
-        "Unnamed: 3": "4The Air Ballers",
-        "jersey": 456.0,
+        "jersey": "456",
         "name": "Amer",
         "totalpoints": 17.0,
         "ftm": 1.0,
@@ -3211,15 +3100,14 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 40.0
+        "Team Score": 40
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -3237,14 +3125,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Asif",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -3263,14 +3150,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Aymaan",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3289,14 +3175,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 91.0,
+        "jersey": "91",
         "name": "Zack",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -3315,14 +3200,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 21.0,
+        "jersey": "21",
         "name": "Mahdi",
         "totalpoints": 21.0,
         "ftm": 0.0,
@@ -3341,14 +3225,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 29.0,
+        "jersey": "29",
         "name": "Omed",
         "totalpoints": 29.0,
         "ftm": 0.0,
@@ -3367,14 +3250,13 @@
         "steals": 3.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 17.0,
+        "jersey": "17",
         "name": "Sami",
         "totalpoints": 7.0,
         "ftm": 1.0,
@@ -3393,14 +3275,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Caliphs",
-        "Unnamed: 3": "4Caliphs",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Harris",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3419,15 +3300,14 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 1.0,
-        "Team Score": 71.0
+        "Team Score": 71
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -3445,14 +3325,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 12.0,
+        "jersey": "12",
         "name": "Mo Q",
         "totalpoints": 9.0,
         "ftm": 1.0,
@@ -3471,14 +3350,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 0.0,
+        "jersey": "00",
         "name": "Sear",
         "totalpoints": 3.0,
         "ftm": 0.0,
@@ -3497,14 +3375,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Fawad",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3523,14 +3400,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 230.0,
+        "jersey": "230",
         "name": "Khais",
         "totalpoints": 22.0,
         "ftm": 4.0,
@@ -3549,14 +3425,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Sohil",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3575,14 +3450,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Unknown1",
         "totalpoints": 7.0,
         "ftm": 1.0,
@@ -3601,14 +3475,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Kabul Lions",
-        "Unnamed: 3": "4Kabul Lions",
-        "jersey": 91.0,
+        "jersey": "91",
         "name": "Unknown2",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -3627,15 +3500,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 45.0
+        "Team Score": 45
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -3653,14 +3525,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Atif",
         "totalpoints": 27.0,
         "ftm": 4.0,
@@ -3679,14 +3550,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Bhatti",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -3705,14 +3575,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 35.0,
+        "jersey": "35",
         "name": "Abdullah",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -3731,14 +3600,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Waqar",
         "totalpoints": 13.0,
         "ftm": 2.0,
@@ -3757,14 +3625,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 2.0,
+        "jersey": "2",
         "name": "Talha",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -3783,14 +3650,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Fraz",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3809,14 +3675,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Ummah Elite",
-        "Unnamed: 3": "5Ummah Elite",
-        "jersey": 30.0,
+        "jersey": "30",
         "name": "Jarif",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3835,15 +3700,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 55.0
+        "Team Score": 55
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -3861,14 +3725,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 30.0,
+        "jersey": "30",
         "name": "Santana",
         "totalpoints": 28.0,
         "ftm": 3.0,
@@ -3887,14 +3750,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 21.0,
+        "jersey": "21",
         "name": "Parmtreas",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3913,14 +3775,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 35.0,
+        "jersey": "35",
         "name": "Ced",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -3939,14 +3800,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Ha",
         "totalpoints": 18.0,
         "ftm": 0.0,
@@ -3965,14 +3825,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Hasmani",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -3991,14 +3850,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 8.0,
+        "jersey": "8",
         "name": "Jeezus",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -4017,14 +3875,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 5.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 93.0,
+        "jersey": "93",
         "name": "Scher",
         "totalpoints": 4.0,
         "ftm": 0.0,
@@ -4043,14 +3900,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": 5.0,
+        "division": "5",
         "team": "Redemption",
-        "Unnamed: 3": "5Redemption",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Bhuiyan",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -4069,15 +3925,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 63.0
+        "Team Score": 63
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -4095,14 +3950,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Robail",
         "totalpoints": 4.0,
         "ftm": 1.0,
@@ -4121,14 +3975,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Sushil",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -4147,14 +4000,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 14.0,
+        "jersey": "14",
         "name": "Munir",
         "totalpoints": 7.0,
         "ftm": 1.0,
@@ -4173,14 +4025,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 5.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 16.0,
+        "jersey": "16",
         "name": "Nico",
         "totalpoints": 12.0,
         "ftm": 0.0,
@@ -4199,14 +4050,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Jabez",
         "totalpoints": 9.0,
         "ftm": 1.0,
@@ -4225,14 +4075,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 5.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": 4.0,
+        "division": "4",
         "team": "Brunson Burners",
-        "Unnamed: 3": "4Brunson Burners",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Zano",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -4251,15 +4100,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 42.0
+        "Team Score": 42
       },
       {
         "week": 1,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -4277,14 +4125,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": NaN
+        "Team Score": ""
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Mikey",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -4303,14 +4150,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 8.0,
+        "jersey": "8",
         "name": "Blesson",
         "totalpoints": 16.0,
         "ftm": 3.0,
@@ -4329,14 +4175,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 34.0,
+        "jersey": "34",
         "name": "Castley",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -4355,14 +4200,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 5.0,
+        "jersey": "5",
         "name": "Hunz",
         "totalpoints": 14.0,
         "ftm": 0.0,
@@ -4381,14 +4225,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "KP",
         "totalpoints": 14.0,
         "ftm": 2.0,
@@ -4407,14 +4250,13 @@
         "steals": 2.0,
         "turnovers": 3.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 33.0,
+        "jersey": "33",
         "name": "John",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -4433,14 +4275,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Wolfpack",
-        "Unnamed: 3": "2Wolfpack",
-        "jersey": 2.0,
+        "jersey": "2",
         "name": "Unknown",
         "totalpoints": 2.0,
         "ftm": 0.0,
@@ -4459,15 +4300,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 58.0
+        "Team Score": 58
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -4485,14 +4325,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 41.0,
+        "jersey": "41",
         "name": "Ant",
         "totalpoints": 10.0,
         "ftm": 4.0,
@@ -4511,14 +4350,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 34.0,
+        "jersey": "34",
         "name": "Sy",
         "totalpoints": 13.0,
         "ftm": 2.0,
@@ -4537,14 +4375,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 92.0,
+        "jersey": "92",
         "name": "Ramez",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -4563,14 +4400,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 5.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "JC",
         "totalpoints": 12.0,
         "ftm": 2.0,
@@ -4589,14 +4425,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 4.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 91.0,
+        "jersey": "91",
         "name": "Sult",
         "totalpoints": 8.0,
         "ftm": 0.0,
@@ -4615,14 +4450,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Lifetime Allstars",
-        "Unnamed: 3": "2Lifetime Allstars",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Chris",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -4641,15 +4475,14 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 0.0,
-        "Team Score": 57.0
+        "Team Score": 57
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -4667,14 +4500,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "Syed",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -4693,14 +4525,13 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 2.0,
+        "jersey": "2",
         "name": "Yousaf",
         "totalpoints": 25.0,
         "ftm": 3.0,
@@ -4719,14 +4550,13 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 2.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Abdu",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -4745,14 +4575,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": NaN,
+        "division": "",
         "team": "Asadullah",
-        "Unnamed: 3": NaN,
-        "jersey": 35.0,
+        "jersey": "35",
         "name": "B. Zeiden",
         "totalpoints": 12.0,
         "ftm": 1.0,
@@ -4771,14 +4600,13 @@
         "steals": 1.0,
         "turnovers": 3.0,
         "fouls": 4.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Rahman",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -4797,14 +4625,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Khan",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -4823,14 +4650,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Asadullah",
-        "Unnamed: 3": "2Asadullah",
-        "jersey": 8.0,
+        "jersey": "8",
         "name": "Faiz",
         "totalpoints": 4.0,
         "ftm": 2.0,
@@ -4849,15 +4675,14 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 4.0,
-        "Team Score": 56.0
+        "Team Score": 56
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -4875,14 +4700,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Goose",
         "totalpoints": 8.0,
         "ftm": 4.0,
@@ -4901,14 +4725,13 @@
         "steals": 2.0,
         "turnovers": 2.0,
         "fouls": 1.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 92.0,
+        "jersey": "92",
         "name": "Greg",
         "totalpoints": 9.0,
         "ftm": 3.0,
@@ -4927,14 +4750,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 2.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 9.0,
+        "jersey": "9",
         "name": "Sunny",
         "totalpoints": 10.0,
         "ftm": 2.0,
@@ -4953,14 +4775,13 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 1.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 55.0,
+        "jersey": "55",
         "name": "Joe",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -4979,14 +4800,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 28.0,
+        "jersey": "28",
         "name": "Omed",
         "totalpoints": 5.0,
         "ftm": 2.0,
@@ -5005,14 +4825,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 4.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": 2.0,
+        "division": "2",
         "team": "Sparks",
-        "Unnamed: 3": "2Sparks",
-        "jersey": 90.0,
+        "jersey": "90",
         "name": "Slim",
         "totalpoints": 20.0,
         "ftm": 3.0,
@@ -5031,15 +4850,14 @@
         "steals": 3.0,
         "turnovers": 3.0,
         "fouls": 1.0,
-        "Team Score": 59.0
+        "Team Score": 59
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -5057,14 +4875,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 9.0,
+        "jersey": "9",
         "name": "Qas",
         "totalpoints": 11.0,
         "ftm": 0.0,
@@ -5083,14 +4900,13 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 4.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 91.0,
+        "jersey": "91",
         "name": "Semajay",
         "totalpoints": 19.0,
         "ftm": 1.0,
@@ -5109,14 +4925,13 @@
         "steals": 0.0,
         "turnovers": 4.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 8.0,
+        "jersey": "8",
         "name": "Sharma",
         "totalpoints": 7.0,
         "ftm": 1.0,
@@ -5135,14 +4950,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 3.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 99.0,
+        "jersey": "99",
         "name": "Arvin",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -5161,14 +4975,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 13.0,
+        "jersey": "13",
         "name": "Dil",
         "totalpoints": 5.0,
         "ftm": 1.0,
@@ -5187,14 +5000,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 0.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 6.0,
+        "jersey": "6",
         "name": "Nav",
         "totalpoints": 18.0,
         "ftm": 1.0,
@@ -5213,14 +5025,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Puff Puff Pass",
-        "Unnamed: 3": "3Puff Puff Pass",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Nahin",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -5239,15 +5050,14 @@
         "steals": 2.0,
         "turnovers": 2.0,
         "fouls": 4.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -5265,15 +5075,14 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -5291,14 +5100,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 17.0,
+        "jersey": "17",
         "name": "Rafiq",
         "totalpoints": 21.0,
         "ftm": 6.0,
@@ -5317,14 +5125,13 @@
         "steals": 3.0,
         "turnovers": 1.0,
         "fouls": 1.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Atif",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -5343,14 +5150,13 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 0.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 34.0,
+        "jersey": "34",
         "name": "Bhatti",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -5369,14 +5175,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Shahiq",
         "totalpoints": 29.0,
         "ftm": 5.0,
@@ -5395,14 +5200,13 @@
         "steals": 1.0,
         "turnovers": 6.0,
         "fouls": 2.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Tim",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -5421,14 +5225,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 4.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Noor Knights",
-        "Unnamed: 3": "3Noor Knights",
-        "jersey": 24.0,
+        "jersey": "24",
         "name": "Waqar",
         "totalpoints": 2.0,
         "ftm": 2.0,
@@ -5447,15 +5250,14 @@
         "steals": 1.0,
         "turnovers": 3.0,
         "fouls": 1.0,
-        "Team Score": 62.0
+        "Team Score": 62
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -5473,14 +5275,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Digguh",
         "totalpoints": 9.0,
         "ftm": 0.0,
@@ -5499,14 +5300,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 11.0,
+        "jersey": "11",
         "name": "rawrzanski",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -5525,14 +5325,13 @@
         "steals": 2.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "Visc",
         "totalpoints": 21.0,
         "ftm": 5.0,
@@ -5551,14 +5350,13 @@
         "steals": 0.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 4.0,
+        "jersey": "4",
         "name": "Parm",
         "totalpoints": 5.0,
         "ftm": 2.0,
@@ -5577,14 +5375,13 @@
         "steals": 0.0,
         "turnovers": 2.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 10.0,
+        "jersey": "10",
         "name": "Darsh",
         "totalpoints": 10.0,
         "ftm": 0.0,
@@ -5603,14 +5400,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 0.0,
+        "jersey": "0",
         "name": "Huffman",
         "totalpoints": 0.0,
         "ftm": 0.0,
@@ -5629,14 +5425,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 1.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Fry City",
-        "Unnamed: 3": "3Fry City",
-        "jersey": 1.0,
+        "jersey": "1",
         "name": "Ricky",
         "totalpoints": 10.0,
         "ftm": 2.0,
@@ -5655,15 +5450,14 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 60.0
+        "Team Score": 60
       },
       {
         "week": 2,
-        "division": NaN,
-        "team": NaN,
-        "Unnamed: 3": NaN,
-        "jersey": NaN,
-        "name": NaN,
+        "division": "",
+        "team": "",
+        "jersey": "",
+        "name": "",
         "totalpoints": 0.0,
         "ftm": 0.0,
         "fta": 0.0,
@@ -5681,14 +5475,13 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 0.0,
-        "Team Score": 0.0
+        "Team Score": 0
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 25.0,
+        "jersey": "25",
         "name": "Kd",
         "totalpoints": 5.0,
         "ftm": 0.0,
@@ -5707,14 +5500,13 @@
         "steals": 1.0,
         "turnovers": 1.0,
         "fouls": 2.0,
-        "Team Score": 54.0
+        "Team Score": 54
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 23.0,
+        "jersey": "23",
         "name": "Nezef",
         "totalpoints": 12.0,
         "ftm": 2.0,
@@ -5733,14 +5525,13 @@
         "steals": 0.0,
         "turnovers": 4.0,
         "fouls": 3.0,
-        "Team Score": 54.0
+        "Team Score": 54
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 15.0,
+        "jersey": "15",
         "name": "Tauseef",
         "totalpoints": 7.0,
         "ftm": 0.0,
@@ -5759,14 +5550,13 @@
         "steals": 0.0,
         "turnovers": 3.0,
         "fouls": 1.0,
-        "Team Score": 54.0
+        "Team Score": 54
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 3.0,
+        "jersey": "3",
         "name": "Rafiq",
         "totalpoints": 3.0,
         "ftm": 1.0,
@@ -5785,14 +5575,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 54.0
+        "Team Score": 54
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 33.0,
+        "jersey": "33",
         "name": "Ani",
         "totalpoints": 21.0,
         "ftm": 2.0,
@@ -5811,14 +5600,13 @@
         "steals": 1.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 54.0
+        "Team Score": 54
       },
       {
         "week": 2,
-        "division": 3.0,
+        "division": "3",
         "team": "Just Hoops",
-        "Unnamed: 3": "3Just Hoops",
-        "jersey": 333.0,
+        "jersey": "333",
         "name": "Mo",
         "totalpoints": 6.0,
         "ftm": 0.0,
@@ -5837,7 +5625,7 @@
         "steals": 0.0,
         "turnovers": 0.0,
         "fouls": 3.0,
-        "Team Score": 54.0
+        "Team Score": 54
       }
     ]
   }
