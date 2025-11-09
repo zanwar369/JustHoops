@@ -67,6 +67,18 @@
 
         <!-- Controls (Filtering) -->
         <div class="flex flex-wrap items-center gap-4 mb-6 p-4 bg-white rounded-xl shadow-md ring-1 ring-gray-100">
+            
+            <!-- Search Input (FIX: Re-added for JS to find) -->
+            <div class="flex-grow">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Filter by Name, Team, or Division..."
+                    class="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+                    oninput="filterData()" 
+                />
+            </div>
+            
             <!-- Global Selectors (Always visible) -->
             <select id="seasonSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm">
                 <!-- Options populated by JS -->
@@ -307,16 +319,19 @@
             // Only add active class if it's one of the main tabs
             if (activeTabEl) activeTabEl.classList.add('tab-active'); 
             
+            // Get the search input element for placeholder updates
+            const searchInput = document.getElementById('searchInput');
+
             // Manage Controls and Title
             if (view === 'standings') {
                 document.getElementById('subTitle').textContent = `${currentSeason} Standings`;
-                document.getElementById('searchInput').placeholder = 'Filter Standings by Team...';
+                if (searchInput) searchInput.placeholder = 'Filter Standings by Team...';
             } else if (view === 'stats') {
                 document.getElementById('subTitle').textContent = `${currentSeason} Player Averages`;
-                document.getElementById('searchInput').placeholder = 'Filter Player Stats by Player or Team Name...';
+                if (searchInput) searchInput.placeholder = 'Filter Player Stats by Player or Team Name...';
             } else if (view === 'team') {
                  document.getElementById('subTitle').innerHTML = `Team Page: <span class="font-bold text-indigo-700">${teamName}</span>`;
-                 document.getElementById('searchInput').placeholder = 'Filter Players on this team...';
+                 if (searchInput) searchInput.placeholder = 'Filter Players on this team...';
             }
             
             filterData(); // Re-render content
@@ -331,12 +346,12 @@
             currentSeason = document.getElementById('seasonSelector').value;
             
             const divisionSel = document.getElementById('divisionSelector');
-            if (divisionSel && !divisionSel.classList.contains('hidden')) {
+            if (divisionSel) {
                 currentDivision = divisionSel.value;
             }
             
             const weekSel = document.getElementById('weekSelector');
-            if (weekSel && !weekSel.classList.contains('hidden')) {
+            if (weekSel) {
                 currentWeek = parseInt(weekSel.value);
             }
 
@@ -733,6 +748,9 @@
                 populateSelectors();
                 setTabView('standings'); // Start on the Standings page
                 statusEl.textContent = 'Data Loaded (Simulated)';
+                // Ensure default styling is applied
+                statusEl.classList.add('bg-indigo-100', 'text-indigo-700');
+                statusEl.classList.remove('bg-red-100', 'text-red-700');
 
             } catch (error) {
                 console.error("Initialization Error: ", error);
