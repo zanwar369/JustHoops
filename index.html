@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Hoops Stats</title>
+    <title>Just Hoops Stats Dashboard</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter font -->
@@ -28,6 +28,14 @@
             color: #4f46e5;
             font-weight: 600;
         }
+        .clickable-team {
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        .clickable-team:hover {
+            color: #4f46e5; /* indigo-600 */
+        }
     </style>
 </head>
 <body class="min-h-screen bg-gray-50">
@@ -40,7 +48,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mr-3 text-indigo-600">
                     <path fill-rule="evenodd" d="M11.54 22.351A2.25 2.25 0 0 0 14.15 22.5h2.25a2.25 2.25 0 0 0 2.602-1.78l.842-4.212A2.25 2.25 0 0 0 17.5 14.25h-4.75a.75.75 0 0 1-.75-.75V8.526a4.5 4.5 0 0 0 3.75-4.493V3a.75.75 0 0 0-.75-.75h-8.25A.75.75 0 0 0 6 3v.033a4.5 4.5 0 0 0 3.75 4.493v5.478a.75.75 0 0 1-.75.75H4.25a2.25 2.25 0 0 0-2.602 2.756l.842 4.212A2.25 2.25 0 0 0 4.85 22.5h2.25a2.25 2.25 0 0 0 2.602-1.78l.108-.54h.878l.108.54Z" clip-rule="evenodd" />
                 </svg>
-                Rec League Stats
+                Just Hoops Stats
             </h1>
             <p class="text-gray-500 text-lg" id="subTitle">
                 Winter 2025 Season Overview.
@@ -48,43 +56,28 @@
         </header>
         
         <!-- Navigation Tabs -->
-        <div class="flex border-b border-gray-200 mb-6">
-            <button onclick="setTabView('standings')" id="tab-standings" class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition">
+        <div class="flex border-b border-gray-200 mb-6" id="mainTabs">
+            <button onclick="setTabView('standings')" id="tab-standings" class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition tab-active">
                 Standings
             </button>
-            <button onclick="setTabView('stats')" id="tab-stats" class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition tab-active">
+            <button onclick="setTabView('stats')" id="tab-stats" class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition">
                 Player Stats
             </button>
         </div>
 
         <!-- Controls (Filtering) -->
         <div class="flex flex-wrap items-center gap-4 mb-6 p-4 bg-white rounded-xl shadow-md ring-1 ring-gray-100">
-            <div class="flex-grow">
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Filter by Player or Team Name..."
-                    class="w-full pl-4 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
-                    oninput="filterTable()"
-                />
-            </div>
-
-            <!-- Season Selector -->
+            <!-- Global Selectors (Always visible) -->
             <select id="seasonSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm">
                 <!-- Options populated by JS -->
             </select>
             
-            <!-- Division Selector (only visible on Standings tab) -->
-            <select id="divisionSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm hidden">
-                <!-- Options populated by JS -->
-            </select>
+            <!-- Dynamic Controls Container -->
+            <div id="dynamicControls" class="flex flex-wrap items-center gap-4">
+                <!-- Selectors appear here based on Tab View -->
+            </div>
 
-            <!-- Week Selector (only visible on Standings tab) -->
-            <select id="weekSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm hidden">
-                <!-- Options populated by JS -->
-            </select>
-            
-            <div id="dataStatus" class="bg-indigo-100 text-indigo-700 p-2 rounded-lg text-sm font-medium shrink-0">
+            <div id="dataStatus" class="bg-indigo-100 text-indigo-700 p-2 rounded-lg text-sm font-medium shrink-0 ml-auto">
                 Loading data...
             </div>
         </div>
@@ -96,7 +89,7 @@
                 <!-- Stat Cards will be rendered here -->
             </div>
             
-            <!-- Main Display (Standings Table / Player Table) -->
+            <!-- Main Display (Table) -->
             <div class="bg-white rounded-xl shadow-2xl overflow-x-auto ring-1 ring-gray-200">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-indigo-600 text-white">
@@ -105,7 +98,7 @@
                         </tr>
                     </thead>
                     <tbody id="statsTableBody" class="divide-y divide-gray-100">
-                        <!-- Player or Standings rows will be loaded here -->
+                        <!-- Player, Standings, or Game Log rows will be loaded here -->
                     </tbody>
                 </table>
             </div>
@@ -113,72 +106,128 @@
     </div>
 
     <script>
-        // --- CONFIGURATION & COMPLEX MOCK DATA ---
+        // --- CONFIGURATION & DATA ---
         // NOTE: In a real app, this data would be fetched from a single, consolidated JSON file
-        // generated by a script that processed all your weekly Excel sheets.
-
+        // e.g., const DATA_URL = 'https://yourusername.github.io/rec-league-stats/league_data.json';
+        
         // This list defines ALL STATS from your Excel files that should be processed.
         const STAT_COLUMNS = [
             { key: 'name', label: 'Player', isNumeric: false },
             { key: 'team', label: 'Team', isNumeric: false },
-            { key: 'division', label: 'Division', isNumeric: false },
+            { key: 'jersey', label: '#', isNumeric: true, decimal: 0 },
             { key: 'totalpoints', label: 'PTS', isNumeric: true, decimal: 1 },
-            { key: 'ftm', label: 'FTM', isNumeric: true, decimal: 0 },
-            { key: 'fta', label: 'FTA', isNumeric: true, decimal: 0 },
-            { key: 'ft_percent', label: 'FT%', isNumeric: true, isPercent: true },
-            { key: '2pm', label: '2PM', isNumeric: true, decimal: 0 },
-            { key: '2pa', label: '2PA', isNumeric: true, decimal: 0 },
-            { key: '2p_percent', label: '2P%', isNumeric: true, isPercent: true },
-            { key: '3pm', label: '3PM', isNumeric: true, decimal: 0 },
-            { key: '3pa', label: '3PA', isNumeric: true, decimal: 0 },
-            { key: '3p_percent', label: '3P%', isNumeric: true, isPercent: true },
-            { key: 'fg_percent', label: 'FG%', isNumeric: true, isPercent: true },
             { key: 'rebounds', label: 'REB', isNumeric: true, decimal: 1 },
             { key: 'assists', label: 'AST', isNumeric: true, decimal: 1 },
             { key: 'blocks', label: 'BLK', isNumeric: true, decimal: 1 },
             { key: 'steals', label: 'STL', isNumeric: true, decimal: 1 },
             { key: 'turnovers', label: 'TO', isNumeric: true, decimal: 1 },
             { key: 'fouls', label: 'PF', isNumeric: true, decimal: 1 },
-            { key: 'games_played', label: 'GP', isNumeric: true, decimal: 0 }, // Calculated
+            { key: 'ft_percent', label: 'FT%', isNumeric: true, isPercent: true },
+            { key: 'fg_percent', label: 'FG%', isNumeric: true, isPercent: true },
         ];
         
-        // This simulates your full, processed JSON data.
+        // --- MOCK DATA STRUCTURE (MUST MATCH YOUR CONSOLIDATED JSON) ---
+        // Your JSON file must contain two sections:
+        // 1. gameLogs: For calculating Standings.
+        // 2. playerGameLogs: RAW stats for EVERY game played by EVERY player.
         const LEAGUE_DATA = {
             "Winter 2025": {
-                // Game logs are structured for Standings calculation
                 "gameLogs": [
-                    // Week 1
                     { week: 1, team: "Blue Bombers", div: "D2", score: 65, oppScore: 60, opp: "Green Giants" },
                     { week: 1, team: "Green Giants", div: "D2", score: 60, oppScore: 65, opp: "Blue Bombers" },
                     { week: 1, team: "Red Rockets", div: "D3", score: 45, oppScore: 48, opp: "White Wolves" },
                     { week: 1, team: "White Wolves", div: "D3", score: 48, oppScore: 45, opp: "Red Rockets" },
-                    // Week 2
                     { week: 2, team: "Blue Bombers", div: "D2", score: 70, oppScore: 72, opp: "Black Hawks" },
                     { week: 2, team: "Black Hawks", div: "D2", score: 72, oppScore: 70, opp: "Blue Bombers" },
                     { week: 2, team: "Green Giants", div: "D2", score: 55, oppScore: 50, opp: "Yellow Jackets" },
                     { week: 2, team: "Yellow Jackets", div: "D2", score: 50, oppScore: 55, opp: "Green Giants" },
                 ],
-                // Player stats should be pre-aggregated (Averaged) by your Python script
-                "playerStats": [
-                    { name: 'Alex Jones', team: 'Blue Bombers', division: 'D2', totalpoints: 25.4, rebounds: 6.2, assists: 4.8, fg_percent: 0.512, games_played: 2, ftm: 3, fta: 4, ft_percent: 0.75, '2pm': 10, '2pa': 20, '2p_percent': 0.5, '3pm': 5, '3pa': 10, '3p_percent': 0.5, blocks: 0.5, steals: 1.5, turnovers: 2.0, fouls: 2.0 },
-                    { name: 'Chris Baker', team: 'Blue Bombers', division: 'D2', totalpoints: 14.7, rebounds: 3.9, assists: 7.2, fg_percent: 0.435, games_played: 2, ftm: 2, fta: 2, ft_percent: 1.0, '2pm': 6, '2pa': 15, '2p_percent': 0.4, '3pm': 0, '3pa': 3, '3p_percent': 0.0, blocks: 0.0, steals: 0.5, turnovers: 3.0, fouls: 1.0 },
-                    { name: 'Brandon Smith', team: 'Green Giants', division: 'D2', totalpoints: 19.1, rebounds: 10.5, assists: 3.1, fg_percent: 0.488, games_played: 2, ftm: 4, fta: 6, ft_percent: 0.667, '2pm': 8, '2pa': 15, '2p_percent': 0.533, '3pm': 1, '3pa': 5, '3p_percent': 0.2, blocks: 1.0, steals: 2.0, turnovers: 1.0, fouls: 3.0 },
-                    { name: 'Black Player 1', team: 'Black Hawks', division: 'D2', totalpoints: 20.0, rebounds: 8.0, assists: 5.0, fg_percent: 0.500, games_played: 1, ftm: 2, fta: 3, ft_percent: 0.667, '2pm': 8, '2pa': 16, '2p_percent': 0.5, '3pm': 0, '3pa': 0, '3p_percent': 0.0, blocks: 0.0, steals: 1.0, turnovers: 1.0, fouls: 1.0 },
-                    // ... More players for D2, D3, D4, D5
+                "playerGameLogs": [
+                    // Player 1 - Blue Bombers
+                    { name: 'Alex Jones', team: 'Blue Bombers', division: 'D2', jersey: 5, week: 1, totalpoints: 30, rebounds: 7, assists: 5, blocks: 1, steals: 2, turnovers: 1, fouls: 2, ftm: 4, fta: 5, '2pm': 10, '2pa': 15, '3pm': 2, '3pa': 5 },
+                    { name: 'Alex Jones', team: 'Blue Bombers', division: 'D2', jersey: 5, week: 2, totalpoints: 25, rebounds: 5, assists: 3, blocks: 0, steals: 1, turnovers: 2, fouls: 1, ftm: 3, fta: 4, '2pm': 8, '2pa': 14, '3pm': 2, '3pa': 6 },
+                    { name: 'Chris Baker', team: 'Blue Bombers', division: 'D2', jersey: 12, week: 1, totalpoints: 15, rebounds: 4, assists: 7, blocks: 0, steals: 1, turnovers: 3, fouls: 1, ftm: 2, fta: 2, '2pm': 4, '2pa': 8, '3pm': 1, '3pa': 5 },
+                    { name: 'Chris Baker', team: 'Blue Bombers', division: 'D2', jersey: 12, week: 2, totalpoints: 18, rebounds: 3, assists: 6, blocks: 0, steals: 0, turnovers: 2, fouls: 2, ftm: 3, fta: 4, '2pm': 5, '2pa': 10, '3pm': 1, '3pa': 4 },
+                    // Player 2 - Green Giants
+                    { name: 'Brandon Smith', team: 'Green Giants', division: 'D2', jersey: 23, week: 1, totalpoints: 22, rebounds: 12, assists: 4, blocks: 1, steals: 2, turnovers: 1, fouls: 3, ftm: 3, fta: 4, '2pm': 7, '2pa': 14, '3pm': 1, '3pa': 4 },
+                    { name: 'Brandon Smith', team: 'Green Giants', division: 'D2', jersey: 23, week: 2, totalpoints: 17, rebounds: 9, assists: 2, blocks: 1, steals: 2, turnovers: 0, fouls: 3, ftm: 1, fta: 2, '2pm': 6, '2pa': 12, '3pm': 1, '3pa': 5 },
+                    // Player 3 - Black Hawks
+                    { name: 'Black Player 1', team: 'Black Hawks', division: 'D2', jersey: 1, week: 2, totalpoints: 20, rebounds: 8, assists: 5, blocks: 0, steals: 1, turnovers: 1, fouls: 1, ftm: 2, fta: 3, '2pm': 8, '2pa': 16, '3pm': 0, '3pa': 0 },
+                    // Player 4 - Yellow Jackets
+                    { name: 'Yellow Player 1', team: 'Yellow Jackets', division: 'D2', jersey: 44, week: 2, totalpoints: 15, rebounds: 5, assists: 2, blocks: 0, steals: 1, turnovers: 3, fouls: 2, ftm: 1, fta: 2, '2pm': 6, '2pa': 14, '3pm': 0, '3pa': 0 },
                 ]
             }
         };
 
         // --- GLOBAL STATE ---
-        let currentTabView = 'stats'; // 'stats' or 'standings'
+        let currentTabView = 'standings'; // 'standings', 'stats', or 'team'
         let currentSeason = 'Winter 2025';
         let currentDivision = 'D2';
         let currentWeek = 2; // Default to max week
-        let players = [];
-        let teams = [];
+        let currentTeam = null; // Used for 'team' view
+        let playerGameLogs = []; // Raw log data
         let sortConfig = { key: 'totalpoints', direction: 'desc' };
         
         // --- DATA PROCESSING & CALCULATIONS ---
+
+        function calculateAverages() {
+            // Group raw logs by player
+            const playerMap = {};
+            playerGameLogs.forEach(log => {
+                const playerId = log.name + log.team; // Unique ID by Name+Team
+                if (!playerMap[playerId]) {
+                    playerMap[playerId] = {
+                        logs: [],
+                        total: { ftm: 0, fta: 0, '2pm': 0, '2pa': 0, '3pm': 0, '3pa': 0 }
+                    };
+                }
+                playerMap[playerId].logs.push(log);
+                
+                // Aggregate totals for shooting percentage calculation
+                playerMap[playerId].total.ftm += log.ftm;
+                playerMap[playerId].total.fta += log.fta;
+                playerMap[playerId].total['2pm'] += log['2pm'];
+                playerMap[playerId].total['2pa'] += log['2pa'];
+                playerMap[playerId].total['3pm'] += log['3pm'];
+                playerMap[playerId].total['3pa'] += log['3pa'];
+            });
+
+            // Calculate final averages and percentages
+            return Object.values(playerMap).map(data => {
+                const gamesPlayed = data.logs.length;
+                const firstLog = data.logs[0];
+                
+                // Calculate average of every stat
+                const averages = data.logs.reduce((acc, log) => {
+                    STAT_COLUMNS.filter(c => c.isNumeric).forEach(col => {
+                        acc[col.key] = (acc[col.key] || 0) + log[col.key] / gamesPlayed;
+                    });
+                    return acc;
+                }, {});
+                
+                // Calculate percentages based on totals
+                const total2pMade = data.total['2pm'];
+                const total2pAttempted = data.total['2pa'];
+                const total3pMade = data.total['3pm'];
+                const total3pAttempted = data.total['3pa'];
+                const totalFgMade = total2pMade + total3pMade;
+                const totalFgAttempted = total2pAttempted + total3pAttempted;
+                
+                return {
+                    name: firstLog.name,
+                    team: firstLog.team,
+                    division: firstLog.division,
+                    jersey: firstLog.jersey,
+                    games_played: gamesPlayed,
+                    ...averages,
+                    // Calculated percentages overwrite averaged percentages
+                    ft_percent: data.total.fta > 0 ? data.total.ftm / data.total.fta : 0,
+                    '2p_percent': total2pAttempted > 0 ? total2pMade / total2pAttempted : 0,
+                    '3p_percent': total3pAttempted > 0 ? total3pMade / total3pAttempted : 0,
+                    fg_percent: totalFgAttempted > 0 ? totalFgMade / totalFgAttempted : 0,
+                };
+            });
+        }
 
         function calculateStandings(week) {
             const gameLogs = LEAGUE_DATA[currentSeason].gameLogs.filter(log => log.week <= week);
@@ -193,15 +242,17 @@
                         losses: 0,
                         pointsScored: 0,
                         pointsAllowed: 0,
+                        games: []
                     };
                 }
 
                 const teamStats = standingsMap[log.team];
+                teamStats.games.push(log); // Keep log data for team page
                 
                 // Update W/L
                 if (log.score > log.oppScore) {
                     teamStats.wins += 1;
-                } else {
+                } else if (log.score < log.oppScore) {
                     teamStats.losses += 1;
                 }
                 
@@ -219,70 +270,127 @@
 
             // Sort: 1. By Division, 2. By Win/Loss Ratio, 3. By Point Differential
             standingsArray.sort((a, b) => {
+                // Primary Sort: Division
                 if (a.division < b.division) return -1;
                 if (a.division > b.division) return 1;
 
+                // Secondary Sort: Win Ratio
                 const winRatioA = a.wins / a.gamesPlayed;
                 const winRatioB = b.wins / b.gamesPlayed;
                 if (winRatioA !== winRatioB) {
                     return winRatioB - winRatioA; // Higher ratio comes first
                 }
-                return b.pointDifferential - a.pointDifferential; // Higher differential comes first
+                
+                // Tertiary Sort: Point Differential
+                return b.pointDifferential - a.pointDifferential; 
             });
 
             return standingsArray.filter(s => s.division === currentDivision);
         }
 
-        // Filters players by the currently selected division
-        function getFilteredPlayers() {
-            return players.filter(p => p.division === currentDivision);
-        }
+        // --- UI MANIPULATION & NAVIGATION ---
 
-        // --- UI MANIPULATION ---
-
-        function setTabView(view) {
+        function setTabView(view, teamName = null) {
             currentTabView = view;
+            currentTeam = teamName;
+            
+            // Manage Tab Classes
             const tabs = ['stats', 'standings'];
             tabs.forEach(tab => {
-                document.getElementById(`tab-${tab}`).classList.remove('tab-active');
+                const tabEl = document.getElementById(`tab-${tab}`);
+                if (tabEl) tabEl.classList.remove('tab-active');
             });
-            document.getElementById(`tab-${view}`).classList.add('tab-active');
-
-            // Toggle visibility of Division/Week selectors
-            const isStandings = view === 'standings';
-            document.getElementById('divisionSelector').classList.toggle('hidden', !isStandings);
-            document.getElementById('weekSelector').classList.toggle('hidden', !isStandings);
-
-            if (isStandings) {
-                 document.getElementById('searchInput').placeholder = 'Filter Standings by Team...';
-            } else {
-                 document.getElementById('searchInput').placeholder = 'Filter Player Stats by Player or Team Name...';
+            const activeTabEl = document.getElementById(`tab-${view}`);
+            if (activeTabEl) activeTabEl.classList.add('tab-active');
+            
+            // Manage Controls and Title
+            if (view === 'standings') {
+                document.getElementById('subTitle').textContent = `${currentSeason} Standings`;
+                document.getElementById('searchInput').placeholder = 'Filter Standings by Team...';
+            } else if (view === 'stats') {
+                document.getElementById('subTitle').textContent = `${currentSeason} Player Averages`;
+                document.getElementById('searchInput').placeholder = 'Filter Player Stats by Player or Team Name...';
+            } else if (view === 'team') {
+                 document.getElementById('subTitle').innerHTML = `Team Page: <span class="font-bold text-indigo-700">${teamName}</span>`;
+                 document.getElementById('searchInput').placeholder = 'Filter Players on this team...';
             }
             
             filterData(); // Re-render content
         }
         
-        function filterData() {
-            // Update global state from selectors
-            currentSeason = document.getElementById('seasonSelector').value;
-            currentDivision = document.getElementById('divisionSelector').value;
-            currentWeek = parseInt(document.getElementById('weekSelector').value);
+        function viewTeamDetails(teamName) {
+             setTabView('team', teamName);
+        }
 
-            // Update page title
-            document.getElementById('subTitle').textContent = `${currentSeason} Season - ${currentDivision} | Up to Week ${currentWeek}`;
+        function filterData() {
+            // Update global state from selectors (only visible selectors update)
+            currentSeason = document.getElementById('seasonSelector').value;
             
-            // Re-render the active view
+            const divisionSel = document.getElementById('divisionSelector');
+            if (divisionSel && !divisionSel.classList.contains('hidden')) {
+                currentDivision = divisionSel.value;
+            }
+            
+            const weekSel = document.getElementById('weekSelector');
+            if (weekSel && !weekSel.classList.contains('hidden')) {
+                currentWeek = parseInt(weekSel.value);
+            }
+
+            // Render Dynamic Controls
+            renderDynamicControls();
+
+            // Render the active view
             if (currentTabView === 'standings') {
                 renderStandingsPage();
+            } else if (currentTabView === 'team') {
+                renderTeamPage();
             } else {
                 renderStatsPage();
             }
         }
         
+        // --- RENDERING CONTROLS ---
+
+        function renderDynamicControls() {
+            const dynamicControls = document.getElementById('dynamicControls');
+            dynamicControls.innerHTML = '';
+            
+            const maxWeek = LEAGUE_DATA[currentSeason].gameLogs.reduce((max, log) => Math.max(max, log.week), 1);
+            const divisions = new Set(LEAGUE_DATA[currentSeason].gameLogs.map(l => l.div));
+
+            if (currentTabView === 'standings') {
+                // Division Selector
+                let divSelect = `<select id="divisionSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm">`;
+                divisions.forEach(div => {
+                    divSelect += `<option value="${div}" ${div === currentDivision ? 'selected' : ''}>${div}</option>`;
+                });
+                divSelect += `</select>`;
+                
+                // Week Selector
+                let weekSelect = `<select id="weekSelector" onchange="filterData()" class="p-2 border border-gray-300 rounded-lg shadow-sm">`;
+                for (let i = 1; i <= maxWeek; i++) {
+                     weekSelect += `<option value="${i}" ${i === currentWeek ? 'selected' : ''}>Up to Week ${i}</option>`;
+                }
+                weekSelect += `</select>`;
+                
+                dynamicControls.innerHTML = divSelect + weekSelect;
+
+            } else if (currentTabView === 'team') {
+                // Team Page View Toggle
+                dynamicControls.innerHTML = `
+                    <select id="teamViewToggle" onchange="renderTeamPage()" class="p-2 border border-gray-300 rounded-lg shadow-sm">
+                        <option value="averages">Player Averages</option>
+                        <option value="gamelogs">Game Logs</option>
+                    </select>
+                `;
+            }
+        }
+        
         // --- RENDERING VIEWS ---
 
-        // Renders the summary cards (League Averages)
         function renderSummaryCards(data) {
+            // Logic remains similar, calculating averages across the whole data set
+            // ... (keeping the existing function structure) ...
             const cardContainer = document.getElementById('summaryCards');
             if (data.length === 0) {
                 cardContainer.innerHTML = '';
@@ -305,8 +413,8 @@
                     <p class="mt-1 text-3xl font-extrabold text-gray-900">${avgPts}</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-lg border-b-4 border-indigo-500">
-                    <p class="text-sm font-medium text-gray-500 uppercase">Total Teams (${currentDivision})</p>
-                    <p class="mt-1 text-3xl font-extrabold text-gray-900">${totalTeams}</p>
+                    <p class="text-sm font-medium text-gray-500 uppercase">Total Players</p>
+                    <p class="mt-1 text-3xl font-extrabold text-gray-900">${totalPlayers}</p>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-lg border-b-4 border-indigo-500">
                     <p class="text-sm font-medium text-gray-500 uppercase">League Avg. REB</p>
@@ -320,26 +428,53 @@
         }
 
         function renderStatsPage() {
-            const filteredPlayers = getFilteredPlayers();
-            renderSummaryCards(filteredPlayers);
-            renderHeaders('stats');
-            renderPlayerTable(filteredPlayers);
+            const allPlayerAverages = calculateAverages();
+            renderSummaryCards(allPlayerAverages);
+            renderHeaders(allPlayerAverages, 'stats');
+            renderPlayerTable(allPlayerAverages);
         }
 
         function renderStandingsPage() {
             const standings = calculateStandings(currentWeek);
-            renderSummaryCards([]); // Hide player cards on standings page initially
+            renderSummaryCards(calculateAverages()); // Show global averages on main standings page
             renderStandingsHeaders();
             renderStandingsTable(standings);
         }
 
+        function renderTeamPage() {
+            const teamViewToggle = document.getElementById('teamViewToggle');
+            const viewType = teamViewToggle ? teamViewToggle.value : 'averages';
+            const teamLogs = playerGameLogs.filter(log => log.team === currentTeam);
+            
+            document.getElementById('summaryCards').innerHTML = ''; // Hide summary cards
+
+            if (viewType === 'averages') {
+                const teamAverages = calculateAverages().filter(p => p.team === currentTeam);
+                renderHeaders(teamAverages, 'teamAverages');
+                renderPlayerTable(teamAverages);
+            } else if (viewType === 'gamelogs') {
+                renderGameLogHeaders();
+                renderGameLogTable(teamLogs);
+            }
+        }
+
+
         // Renders table headers based on the current view
-        function renderHeaders(viewType) {
+        function renderHeaders(data, viewType) {
             const headRow = document.getElementById('statsTableHead');
             headRow.innerHTML = '';
             
-            const columnsToDisplay = STAT_COLUMNS.filter((_, i) => i < 11); // Show only the first 11 columns for the main stats page prototype.
-            
+            // Determine columns to display (just the core stats for simplicity)
+            const columnsToDisplay = STAT_COLUMNS.filter(col => 
+                col.key === 'name' || col.key === 'jersey' || col.key === 'totalpoints' || col.key === 'rebounds' || col.key === 'assists' || col.key === 'ft_percent' || col.key === 'fg_percent'
+            ); 
+
+            // Add GP to the end of the Player Averages table
+            if (viewType !== 'teamAverages') {
+                columnsToDisplay.push({ key: 'games_played', label: 'GP', isNumeric: true, decimal: 0 });
+            }
+
+
             columnsToDisplay.forEach(col => {
                 const th = document.createElement('th');
                 th.className = 'header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider transition';
@@ -365,12 +500,26 @@
             const headRow = document.getElementById('statsTableHead');
             headRow.innerHTML = `
                 <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Rank</th>
-                <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Team</th>
+                <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Team (Click for Details)</th>
                 <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">W</th>
                 <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">L</th>
                 <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">P. Scored</th>
                 <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">P. Allowed</th>
                 <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">Point Diff</th>
+            `;
+        }
+
+        function renderGameLogHeaders() {
+            const headRow = document.getElementById('statsTableHead');
+            headRow.innerHTML = `
+                <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Week</th>
+                <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Player</th>
+                <th class="header-cell px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">Jersey</th>
+                <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">PTS</th>
+                <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">REB</th>
+                <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">AST</th>
+                <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">FG%</th>
+                <th class="header-cell px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">FT%</th>
             `;
         }
         
@@ -387,11 +536,11 @@
             });
 
             if (filteredPlayers.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="${STAT_COLUMNS.length}" class="px-6 py-12 text-center text-gray-500 text-lg">No players found in ${currentDivision} matching the criteria.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="10" class="px-6 py-12 text-center text-gray-500 text-lg">No players found matching the criteria.</td></tr>`;
                 return;
             }
 
-            // Sort the data before rendering
+            // Sort logic (using the same function as before)
             filteredPlayers.sort((a, b) => {
                 const key = sortConfig.key;
                 const aVal = a[key] || 0;
@@ -412,13 +561,22 @@
                 const row = tbody.insertRow();
                 row.className = 'hover:bg-indigo-50 transition';
 
-                STAT_COLUMNS.filter((_, i) => i < 11).forEach(col => {
+                // Display only core average stats + calculated GP
+                const columnsToDisplay = STAT_COLUMNS.filter(col => 
+                    col.key === 'name' || col.key === 'jersey' || col.key === 'totalpoints' || col.key === 'rebounds' || col.key === 'assists' || col.key === 'ft_percent' || col.key === 'fg_percent'
+                ); 
+                
+                // Add GP for global stats page
+                if (currentTabView === 'stats') {
+                     columnsToDisplay.push({ key: 'games_played', label: 'GP', isNumeric: true, decimal: 0 });
+                }
+
+                columnsToDisplay.forEach(col => {
                     const cell = row.insertCell();
                     cell.className = 'data-cell';
                     let displayValue = player[col.key] !== undefined ? player[col.key] : 'N/A';
 
                     if (col.key === 'name') {
-                        // Special handling for Player/Team cell
                         const teamName = player.team || 'N/A';
                         cell.innerHTML = `<div class="font-semibold text-gray-900">${player.name}</div>
                                           <div class="text-xs text-indigo-500">${teamName}</div>`;
@@ -459,7 +617,7 @@
 
                 row.innerHTML = `
                     <td class="data-cell text-center font-extrabold text-lg text-indigo-700">${rank}</td>
-                    <td class="data-cell font-semibold text-gray-900">${s.team}</td>
+                    <td class="data-cell font-semibold text-gray-900 clickable-team" onclick="viewTeamDetails('${s.team}')">${s.team}</td>
                     <td class="data-cell text-center">${s.wins}</td>
                     <td class="data-cell text-center">${s.losses}</td>
                     <td class="data-cell text-center">${s.pointsScored}</td>
@@ -468,46 +626,58 @@
                 `;
             });
         }
+        
+        function renderGameLogTable(logs) {
+            const tbody = document.getElementById('statsTableBody');
+            tbody.innerHTML = '';
+            
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            const filteredLogs = logs.filter(log => log.name.toLowerCase().includes(searchTerm));
+
+            if (filteredLogs.length === 0) {
+                 tbody.innerHTML = `<tr><td colspan="8" class="px-6 py-12 text-center text-gray-500 text-lg">No game logs found for ${currentTeam}.</td></tr>`;
+                return;
+            }
+
+            filteredLogs.forEach(log => {
+                // Calculate percentages needed for display in the log
+                const fg_percent = (log['2pm'] + log['3pm']) / (log['2pa'] + log['3pa']);
+                const ft_percent = log.fta > 0 ? log.ftm / log.fta : 0;
+                
+                const row = tbody.insertRow();
+                row.className = 'hover:bg-indigo-50 transition';
+
+                row.innerHTML = `
+                    <td class="data-cell font-bold text-center">${log.week}</td>
+                    <td class="data-cell font-semibold">${log.name}</td>
+                    <td class="data-cell text-center">${log.jersey}</td>
+                    <td class="data-cell text-center font-semibold">${log.totalpoints.toFixed(0)}</td>
+                    <td class="data-cell text-center">${log.rebounds.toFixed(0)}</td>
+                    <td class="data-cell text-center">${log.assists.toFixed(0)}</td>
+                    <td class="data-cell text-center font-mono text-green-600">${(fg_percent * 100).toFixed(1)}%</td>
+                    <td class="data-cell text-center font-mono text-green-600">${(ft_percent * 100).toFixed(1)}%</td>
+                `;
+            });
+        }
+
+        // --- SORTING LOGIC ---
+
+        function sortPlayers(key) {
+            let direction = 'asc';
+            if (sortConfig.key === key && sortConfig.direction === 'asc') {
+                direction = 'desc';
+            }
+            sortConfig = { key, direction };
+            
+            // Re-render the current view to apply new sort order
+            if (currentTabView === 'stats' || currentTabView === 'team') {
+                renderPlayerTable(calculateAverages().filter(p => currentTabView === 'stats' || p.team === currentTeam));
+            } else if (currentTabView === 'standings') {
+                // Standings sorting is hardcoded in calculateStandings (W/L, then Diff)
+                renderStandingsTable(calculateStandings(currentWeek));
+            }
+        }
 
 
         // --- INITIALIZATION ---
-        function populateSelectors() {
-            const seasonSel = document.getElementById('seasonSelector');
-            const divisionSel = document.getElementById('divisionSelector');
-            const weekSel = document.getElementById('weekSelector');
-
-            // Seasons
-            Object.keys(LEAGUE_DATA).forEach(season => {
-                seasonSel.options.add(new Option(season, season, true, season === currentSeason));
-            });
-
-            // Divisions (based on current data)
-            const divisions = new Set(LEAGUE_DATA[currentSeason].gameLogs.map(l => l.div));
-            divisions.forEach(div => {
-                divisionSel.options.add(new Option(div, div, true, div === currentDivision));
-            });
-            
-            // Weeks (based on current data)
-            const maxWeek = LEAGUE_DATA[currentSeason].gameLogs.reduce((max, log) => Math.max(max, log.week), 1);
-            for (let i = 1; i <= maxWeek; i++) {
-                 weekSel.options.add(new Option(`Week ${i}`, i, true, i === maxWeek));
-            }
-            
-            // Set initial state
-            players = LEAGUE_DATA[currentSeason].playerStats;
-            currentWeek = maxWeek;
-            currentDivision = divisions.values().next().value; // Set to the first division found
-        }
-        
-        async function init() {
-            document.getElementById('dataStatus').textContent = 'Data Loaded (Simulated)';
-
-            populateSelectors();
-            setTabView('standings'); // Start on the Standings page as requested
-        }
-        
-        window.onload = init;
-    </script>
-</body>
-
-</html>
