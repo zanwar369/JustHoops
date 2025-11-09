@@ -1,925 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Hoops Stats Dashboard</title>
-    <!-- Load Tailwind CSS -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Just Hoops Stats — Modern</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* Apply the font and a base background color */
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #f7f9fc; /* A light, clean gray */
-        }
-        /* Style for the navigation tabs */
-        .tab-button {
-            transition: all 0.3s ease;
-        }
-        .tab-button.active { 
-            border-bottom: 3px solid #4f46e5; /* Indigo-600 */
-            color: #4f46e5; 
-            font-weight: 700; 
-        }
-        /* Style for sortable table headers */
-        .sortable-header { 
-            cursor: pointer; 
-            user-select: none; /* Prevent text selection */
-        }
-        .sortable-header:hover {
-            background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
-        }
-        /* Hide scrollbar but keep scrolling */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
+      /* Base */
+      :root{
+        --accent: #4f46e5; /* indigo-600 */
+        --muted: #6b7280;
+      }
+      html,body{height:100%}
+      body{
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(180deg,#f9fafc 0%, #eef2ff 60%);
+        color:#0f172a;
+        -webkit-font-smoothing:antialiased;
+        -moz-osx-font-smoothing:grayscale;
+      }
+
+      /* Header */
+      .app-header{
+        backdrop-filter: blur(6px);
+        background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));
+        border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+      }
+
+      /* Cards */
+      .card {
+        background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+        border: 1px solid rgba(15,23,42,0.04);
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      }
+      .glass {
+        background: rgba(255,255,255,0.7);
+        border: 1px solid rgba(15,23,42,0.03);
+        backdrop-filter: blur(4px);
+        border-radius: 12px;
+      }
+
+      /* Table row hover */
+      .table-row-hover:hover{
+        background: linear-gradient(90deg, rgba(79,70,229,0.03), rgba(0,0,0,0.01));
+      }
+
+      /* Logo */
+      .logo-img {
+        height: 48px;
+        width: 48px;
+        object-fit: contain;
+        border-radius:10px;
+        box-shadow: 0 6px 18px rgba(79,70,229,0.12);
+      }
+
+      /* Small helpers */
+      .muted { color: var(--muted); }
+      .accent { color: var(--accent); }
+      .accent-bg { background: linear-gradient(90deg,#eef2ff, #eef2ff); }
+      .pill { background: rgba(79,70,229,0.08); color: var(--accent); padding: 4px 10px; border-radius:999px; font-weight:600; font-size:.8rem; }
+      .sortable-header { cursor: pointer; user-select:none; }
     </style>
 </head>
+
 <body class="antialiased">
-    <!-- Main Application Container -->
-    <div id="app" class="min-h-screen">
-        
-        <!-- Header -->
-        <header class="bg-white shadow-md sticky top-0 z-20">
-            <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-3xl font-extrabold text-gray-900 flex items-center">
-                        <svg class="w-8 h-8 text-indigo-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 0113.414 15.414L10 12l3.414-3.414a8 8 0 014.243-2.829m-4.243 2.829l1.414 1.414M10 12l-1.414 1.414m-1.414 1.414l-1.414 1.414m0-2.828l1.414-1.414m-1.414 0l1.414-1.414m-1.414 0l-1.414 1.414m1.414 0l1.414-1.414m0-2.828l-1.414 1.414m1.414 0l1.414-1.414M10 12L8.586 13.414M10 12l1.414-1.414m-1.414 0l-1.414-1.414m-1.414 0l1.414 1.414m-1.414 0L8.586 12l1.414 1.414M10 12l-1.414 1.414m-1.414 1.414L8.586 12l1.414-1.414M10 12l-1.414 1.414m-1.414 1.414L8.586 12l1.414 1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414m-1.414 0L10 12l1.414-1.414M10 12l-1.414-1.414m-1.414 0L8.586 12l1.414-1.414M1oops
-                        <span class="ml-2">Just Hoops Stats</span>
-                    </h1>
-                    <!-- Data Status Indicator -->
-                    <span id="dataStatus" class="text-xs font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">Loading data...</span>
-                </div>
+  <div id="app" class="min-h-screen">
 
-                <!-- Navigation Tabs -->
-                <nav class="mt-4">
-                    <div class="border-b border-gray-200">
-                        <div class="flex -mb-px">
-                            <button class="tab-button active py-3 px-5 text-gray-600" data-view="standings">
-                                Standings
-                            </button>
-                            <!-- Note: The Team Stats tab is hidden and shown programmatically -->
-                            <button class="tab-button py-3 px-5 text-gray-600 hidden" data-view="team">
-                                Team Stats
-                            </button>
-                        </div>
-                    </div>
-                </nav>
+    <!-- Header -->
+    <header class="app-header sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-center">
+          <div class="flex items-center space-x-4">
+            <!-- Logo reference: place 'Logo.jpg' in same folder as this HTML -->
+            <img src="Logo.jpg" alt="Just Hoops Logo" class="logo-img"/>
+
+            <div>
+              <div class="text-2xl font-extrabold">Just Hoops Stats</div>
+              <div class="text-sm muted">Community / League stats & leaders</div>
             </div>
-        </header>
+          </div>
+        </div>
 
-        <!-- Main Content Area -->
-        <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 px-4">
+        <!-- Small meta row below header -->
+        <div class="mt-4 flex justify-center">
+          <div class="pill">Light — StatMuse Inspired</div>
+        </div>
+      </div>
+    </header>
 
-            <!-- Filtering Controls -->
-            <div class="mb-6 p-4 bg-white rounded-lg shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <!-- Season Filter -->
-                    <div>
-                        <label for="seasonFilter" class="block text-sm font-medium text-gray-700">Season</label>
-                        <select id="seasonFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                    <!-- Division Filter -->
-                    <div>
-                        <label for="divisionFilter" class="block text-sm font-medium text-gray-700">Division</label>
-                        <select id="divisionFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                    <!-- Team Filter -->
-                    <div>
-                        <label for="teamFilter" class="block text-sm font-medium text-gray-700">Team</label>
-                        <select id="teamFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                    <!-- Week Filter (Range) -->
-                    <div>
-                        <label for="weekFilter" class="block text-sm font-medium text-gray-700">Weeks (1 to Max)</label>
-                        <select id="weekFilter" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                            <!-- Options will be populated by JavaScript -->
-                        </select>
-                    </div>
-                </div>
+    <!-- Main -->
+    <main class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      
+      <!-- Filters card -->
+      <section class="card p-5 mb-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div>
+            <label class="block text-sm font-medium muted">Season</label>
+            <select id="seasonFilter" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm">
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium muted">Division</label>
+            <select id="divisionFilter" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm">
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium muted">Team</label>
+            <select id="teamFilter" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm">
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium muted">Weeks (1 → Max)</label>
+            <select id="weekFilter" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm">
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats row -->
+      <section class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-6">
+        <div class="card p-5">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs font-medium muted uppercase">Total Teams</div>
+              <div id="totalTeams" class="text-2xl font-bold">0</div>
+            </div>
+            <div class="text-indigo-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 2.21-1.79 4-4 4s-4-1.79-4-4 1.79-4 4-4 4 1.79 4 4zM20 20v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- placeholders for other stat cards (kept compact) -->
+        <div class="card p-5 flex items-center justify-center muted">League Leaders</div>
+        <div class="card p-5 flex items-center justify-center muted">Avg Points</div>
+        <div class="card p-5 flex items-center justify-center muted">Top Assists</div>
+      </section>
+
+      <!-- Standings & Leaders -->
+      <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Standings (main column) -->
+        <div class="lg:col-span-2">
+          <div class="card overflow-hidden">
+            <div class="px-6 py-5 border-b border-gray-100">
+              <h2 class="text-lg font-bold">Division Standings</h2>
+              <div id="dataStatus" class="text-xs muted mt-1">Loading data...</div>
             </div>
 
-            <!-- Standings View -->
-            <div id="view-standings" class="space-y-8">
-                <!-- Summary Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-                    <div id="statCard-totalTeams" class="bg-white p-5 rounded-lg shadow-sm border-l-4 border-indigo-500">
-                        <div class="flex justify-between items-center">
-                            <div>
-                                <div class="text-sm font-medium text-gray-500 uppercase">Total Teams</div>
-                                <div id="totalTeams" class="text-3xl font-bold text-gray-900">0</div>
-                            </div>
-                            <svg class="w-10 h-10 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.084-1.284-.238-1.857M10 12a4 4 0 11-8 0 4 4 0 018 0zM17 20v-2c0-.653.084-1.284.238-1.857m0 0a3.004 3.004 0 00-3.762 0m-3.762 0A3 3 0 006 18v2m3-3a3 3 0 00-3-3V7a3 3 0 116 0v5a3 3 0 00-3 3z"></path></svg>
-                        </div>
-                    </div>
-                    <!-- Other stat cards removed as requested -->
-                </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-full">
+                <thead class="bg-gray-50">
+                  <tr class="text-xs text-gray-600 uppercase">
+                    <th class="px-6 py-3 sortable-header">Rank</th>
+                    <th class="px-6 py-3 sortable-header">Team</th>
+                    <th class="px-6 py-3 sortable-header">W</th>
+                    <th class="px-6 py-3 sortable-header">L</th>
+                    <th class="px-6 py-3 sortable-header">Win %</th>
+                    <th class="px-6 py-3 sortable-header">PF</th>
+                    <th class="px-6 py-3 sortable-header">PA</th>
+                    <th class="px-6 py-3 sortable-header">Diff</th>
+                  </tr>
+                </thead>
+                <tbody id="standingsTableBody" class="bg-white divide-y divide-gray-100">
+                  <!-- rows injected via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-                <!-- Standings Table -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <h2 class="text-xl font-bold text-gray-800 p-5 border-b border-gray-200">Division Standings</h2>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Standings_Rank">Rank</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Team">Team</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Wins">W</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Losses">L</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Win_Percent">Win %</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Points">PF</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Opponent_Points">PA</th>
-                                    <th class="sortable-header px-6 py-3 text-left text-xs font-medium text-gray-600 uppercase" data-sort="Point_Diff">Diff</th>
-                                </tr>
-                            </thead>
-                            <tbody id="standingsTableBody" class="bg-white divide-y divide-gray-200">
-                                <!-- Standings rows will be populated by JavaScript -->
-                                <!-- Example of a row:
-                                <tr class="hover:bg-gray-50 cursor-pointer" data-team-name="Team Name">
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-indigo-600">Team Name</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">10</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">0</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">1.000</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">850</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">700</td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-green-600">+150</td>
-                                </tr>
-                                -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <!-- League Leaders Section -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <h2 class="text-xl font-bold text-gray-800 p-5 border-b border-gray-200">Division Leaders (Top 5)</h2>
-                    <div id="leagueLeaders" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5">
-                        <!-- Leaderboards will be populated by JavaScript -->
-                        <!-- Example of a leaderboard card:
-                        <div class="border border-gray-200 rounded-lg p-4">
-                            <h3 class="font-bold text-indigo-600">Points per Game</h3>
-                            <ol class="list-decimal list-inside mt-2 space-y-1 text-sm">
-                                <li><span class="font-medium">Player A (Team)</span> - 30.5</li>
-                                <li><span class="font-medium">Player B (Team)</span> - 28.2</li>
-                                <li><span class="font-medium">Player C (Team)</span> - 27.9</li>
-                                <li><span class="font-medium">Player D (Team)</span> - 25.1</li>
-                                <li><span class="font-medium">Player E (Team)</span> - 24.8</li>
-                            </ol>
-                        </div>
-                        -->
-                    </div>
-                </div>
+          <!-- Team View (hidden by default) -->
+          <div id="view-team" class="card mt-6 hidden p-6">
+            <button id="backToStandings" class="text-sm text-indigo-600 hover:underline mb-4">&larr; Back to Standings</button>
+            <h2 id="teamNameHeader" class="text-2xl font-extrabold">Team Name</h2>
 
-            </div> <!-- End Standings View -->
+            <div class="mt-4">
+              <label class="block text-sm muted mb-2">View Stats</label>
+              <select id="statTypeFilter" class="rounded-md border-gray-200 shadow-sm">
+                <option value="averages">Player Averages</option>
+                <option value="gamelogs">Player Game Logs</option>
+              </select>
+            </div>
 
-            <!-- Team Stats View (Hidden by default) -->
-            <div id="view-team" class="hidden space-y-6">
-                <!-- Team Header -->
-                <div class="p-5 bg-white rounded-lg shadow-sm">
-                    <button id="backToStandings" class="text-sm font-medium text-indigo-600 hover:text-indigo-800 mb-4">&larr; Back to Standings</button>
-                    <h2 id="teamNameHeader" class="text-4xl font-extrabold text-gray-900">Team Name</h2>
-                    <!-- Division name removed as requested -->
-                </div>
+            <div id="teamAveragesTable" class="mt-4 overflow-x-auto">
+              <h3 class="text-sm font-semibold mb-2 muted">Player Averages</h3>
+              <table class="min-w-full text-sm">
+                <thead class="bg-gray-50 text-xs text-gray-600 uppercase">
+                  <tr>
+                    <th class="px-3 py-2 sortable-header">Player</th>
+                    <th class="px-3 py-2 sortable-header">GP</th>
+                    <th class="px-3 py-2 sortable-header">PTS</th>
+                    <th class="px-3 py-2 sortable-header">REB</th>
+                    <th class="px-3 py-2 sortable-header">AST</th>
+                    <th class="px-3 py-2 sortable-header">BLK</th>
+                    <th class="px-3 py-2 sortable-header">STL</th>
+                    <th class="px-3 py-2 sortable-header">TO</th>
+                    <th class="px-3 py-2 sortable-header">FOUL</th>
+                    <th class="px-3 py-2 sortable-header">FG%</th>
+                    <th class="px-3 py-2 sortable-header">2PM-2PA</th>
+                    <th class="px-3 py-2 sortable-header">2P%</th>
+                    <th class="px-3 py-2 sortable-header">3PM-3PA</th>
+                    <th class="px-3 py-2 sortable-header">3P%</th>
+                    <th class="px-3 py-2 sortable-header">FTM-FTA</th>
+                    <th class="px-3 py-2 sortable-header">FT%</th>
+                  </tr>
+                </thead>
+                <tbody id="teamAveragesBody" class="bg-white divide-y divide-gray-100">
+                </tbody>
+              </table>
+            </div>
 
-                <!-- Team View: Stat Type Toggle (Averages vs Game Logs) -->
-                <div class="bg-white rounded-lg shadow-sm p-4">
-                    <label for="statTypeFilter" class="block text-sm font-medium text-gray-700 mb-1">View Stats</label>
-                    <select id="statTypeFilter" class="block w-full max-w-xs pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md shadow-sm">
-                        <option value="averages" selected>Player Averages</option>
-                        <option value="gamelogs">Player Game Logs</option>
-                    </select>
-                </div>
+            <div id="teamGameLogsTable" class="mt-4 overflow-x-auto hidden">
+              <h3 class="text-sm font-semibold mb-2 muted">Player Game Logs</h3>
+              <table class="min-w-full text-sm">
+                <thead class="bg-gray-50 text-xs text-gray-600 uppercase">
+                  <tr>
+                    <th class="px-3 py-2 sortable-header">Wk</th>
+                    <th class="px-3 py-2 sortable-header">Player</th>
+                    <th class="px-3 py-2 sortable-header">PTS</th>
+                    <th class="px-3 py-2 sortable-header">REB</th>
+                    <th class="px-3 py-2 sortable-header">AST</th>
+                    <th class="px-3 py-2 sortable-header">BLK</th>
+                    <th class="px-3 py-2 sortable-header">STL</th>
+                    <th class="px-3 py-2 sortable-header">TO</th>
+                    <th class="px-3 py-2 sortable-header">FOUL</th>
+                    <th class="px-3 py-2 sortable-header">FG%</th>
+                    <th class="px-3 py-2 sortable-header">2PM-2PA</th>
+                    <th class="px-3 py-2 sortable-header">2P%</th>
+                    <th class="px-3 py-2 sortable-header">3PM-3PA</th>
+                    <th class="px-3 py-2 sortable-header">3P%</th>
+                    <th class="px-3 py-2 sortable-header">FTM-FTA</th>
+                    <th class="px-3 py-2 sortable-header">FT%</th>
+                  </tr>
+                </thead>
+                <tbody id="teamGameLogsBody" class="bg-white divide-y divide-gray-100">
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
 
-                <!-- Team View: Averages Table (Visible by default) -->
-                <div id="teamAveragesTable" class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <h3 class="text-lg font-bold text-gray-800 p-5 border-b border-gray-200">Player Averages</h3>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-100 text-xs text-gray-600 uppercase">
-                                <tr>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="name">Player</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="gp">GP</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="ppg">PTS</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="rpg">REB</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="apg">AST</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="bpg">BLK</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="spg">STL</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="tpg">TO</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="fpg">FOUL</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="fg_percent">FG%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="2pm">2PM-2PA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="two_p_percent">2P%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="3pm">3PM-3PA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="three_p_percent">3P%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="ftm">FTM-FTA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="ft_percent">FT%</th>
-                                </tr>
-                            </thead>
-                            <tbody id="teamAveragesBody" class="bg-white divide-y divide-gray-200 text-sm">
-                                <!-- Player Averages rows will be populated by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                
-                <!-- Team View: Game Logs Table (Hidden by default) -->
-                <div id="teamGameLogsTable" class="bg-white rounded-lg shadow-lg overflow-hidden hidden">
-                    <h3 class="text-lg font-bold text-gray-800 p-5 border-b border-gray-200">Player Game Logs</h3>
-                    <div class="overflow-x-auto">
-                         <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-100 text-xs text-gray-600 uppercase">
-                                <tr>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="week">Wk</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="name">Player</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="totalpoints">PTS</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="rebounds">REB</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="assists">AST</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="blocks">BLK</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="steals">STL</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="turnovers">TO</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="fouls">FOUL</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="fg_percent">FG%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="2pm">2PM-2PA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="two_p_percent">2P%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="3pm">3PM-3PA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="three_p_percent">3P%</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="ftm">FTM-FTA</th>
-                                    <th class="sortable-header px-4 py-3 text-left" data-sort="ft_percent">FT%</th>
-                                </tr>
-                            </thead>
-                            <tbody id="teamGameLogsBody" class="bg-white divide-y divide-gray-200 text-sm">
-                                <!-- Player Game Log rows will be populated by JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <!-- Right column: leaders -->
+        <aside>
+          <div class="card p-4">
+            <h3 class="font-bold text-sm mb-3">Division Leaders (Top 5)</h3>
+            <div id="leagueLeaders" class="space-y-3">
+              <!-- injected -->
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </div>
 
-            </div> <!-- End Team View -->
+  <!-- JavaScript (kept in-file) -->
+  <script>
+    // -------------------------
+    // GLOBAL STATE & ELEMENTS
+    // -------------------------
+    let LEAGUE_DATA = {};
+    let ALL_PLAYERS = [];
+    let ALL_STANDINGS = [];
+    const CURRENT_FILTERS = {
+      season: null,
+      division: "2", // default requested
+      team: "all",
+      week: "all"
+    };
 
-        </main>
-    </div>
+    const SORT_STATE = {
+      standings: { key: 'Standings_Rank', direction: 'asc' },
+      teamAverages: { key: 'ppg', direction: 'desc' },
+      teamGameLogs: { key: 'week', direction: 'asc' }
+    };
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
-    <script>
-        // --- GLOBAL STATE ---
-        let LEAGUE_DATA = {}; // Holds all data from league_data.json
-        let ALL_PLAYERS = []; // Processed from playerGameLogs
-        let ALL_STANDINGS = []; // From finalStandings
-        let CURRENT_FILTERS = {
-            season: null,
-            division: "D2", // Default to D2
-            team: "all",
-            week: "all"
+    const ELS = {
+      seasonFilter: document.getElementById('seasonFilter'),
+      divisionFilter: document.getElementById('divisionFilter'),
+      teamFilter: document.getElementById('teamFilter'),
+      weekFilter: document.getElementById('weekFilter'),
+      statTypeFilter: document.getElementById('statTypeFilter'),
+      views: {
+        standings: document.getElementById('view-standings'),
+        team: document.getElementById('view-team')
+      },
+      tabs: {
+        standings: document.querySelector('.tab-button[data-view="standings"]'),
+        team: document.querySelector('.tab-button[data-view="team"]')
+      },
+      dataStatus: document.getElementById('dataStatus'),
+      totalTeams: document.getElementById('totalTeams'),
+      standingsTableBody: document.getElementById('standingsTableBody'),
+      leagueLeaders: document.getElementById('leagueLeaders'),
+      backToStandings: document.getElementById('backToStandings'),
+      teamNameHeader: document.getElementById('teamNameHeader'),
+      teamAveragesTable: document.getElementById('teamAveragesTable'),
+      teamGameLogsTable: document.getElementById('teamGameLogsTable'),
+      teamAveragesBody: document.getElementById('teamAveragesBody'),
+      teamGameLogsBody: document.getElementById('teamGameLogsBody')
+    };
+
+    // -------------------------
+    // Utilities
+    // -------------------------
+    function safeNum(v){
+      // treat null/undefined as 0; keep existing numeric 0s
+      return (v ?? 0);
+    }
+
+    function formatPercent(value){
+      if (value === null || value === undefined) return ".000";
+      if (Number.isNaN(value)) return ".000";
+      // clamp numeric
+      const num = Number(value) || 0;
+      if (num >= 1) return num.toFixed(3);
+      if (num === 0) return ".000";
+      return num.toFixed(3).replace(/^0/,'');
+    }
+
+    function sortData(data, key, direction){
+      return [...data].sort((a,b)=>{
+        const aVal = (a?.[key] ?? (typeof a === 'object' ? "" : 0));
+        const bVal = (b?.[key] ?? (typeof b === 'object' ? "" : 0));
+        // string keys
+        if (typeof aVal === 'string' || typeof bVal === 'string'){
+          const as = String(aVal), bs = String(bVal);
+          return direction === 'asc' ? as.localeCompare(bs) : bs.localeCompare(as);
+        }
+        // numeric
+        return direction === 'asc' ? (Number(aVal) - Number(bVal)) : (Number(bVal) - Number(aVal));
+      });
+    }
+
+    function getFilteredPlayerData(){
+      const season = CURRENT_FILTERS.season;
+      const div = CURRENT_FILTERS.division;
+      const team = CURRENT_FILTERS.team;
+      const week = (CURRENT_FILTERS.week === 'all') ? 999 : parseInt(CURRENT_FILTERS.week, 10);
+
+      if (!season || !LEAGUE_DATA[season]) return { filteredLogs: [], filteredPlayersByTeam: {} };
+
+      const logs = LEAGUE_DATA[season].playerGameLogs || [];
+
+      const filteredLogs = logs.filter(log => {
+        if (!log?.name || !log?.team) return false;
+        const logDiv = (log.division ?? log.Division ?? "");
+        return (div === 'all' || String(logDiv) === String(div))
+          && (team === 'all' || log.team === team)
+          && ((log.week ?? 0) <= week);
+      });
+
+      const filteredPlayersByTeam = filteredLogs.reduce((acc, log) => {
+        if (!acc[log.team]) acc[log.team] = [];
+        acc[log.team].push(log.name);
+        return acc;
+      }, {});
+
+      return { filteredLogs, filteredPlayersByTeam };
+    }
+
+    // Calculate player averages safely using nullish coalescing to preserve zeros
+    function calculatePlayerAverages(playerLogs){
+      const playerStats = {};
+      for (const log of (playerLogs || [])){
+        const name = log.name;
+        if (!playerStats[name]){
+          playerStats[name] = {
+            name,
+            team: log.team,
+            gp: 0,
+            totalpoints: 0,
+            rebounds: 0,
+            assists: 0,
+            blocks: 0,
+            steals: 0,
+            turnovers: 0,
+            fouls: 0,
+            total_ftm: 0,
+            total_fta: 0,
+            total_2pm: 0,
+            total_2pa: 0,
+            total_3pm: 0,
+            total_3pa: 0
+          };
+        }
+        const p = playerStats[name];
+        p.gp += 1;
+        p.totalpoints += safeNum(log.totalpoints);
+        p.rebounds += safeNum(log.rebounds);
+        p.assists += safeNum(log.assists);
+        p.blocks += safeNum(log.blocks);
+        p.steals += safeNum(log.steals);
+        p.turnovers += safeNum(log.turnovers);
+        p.fouls += safeNum(log.fouls);
+
+        // use both possible naming variants just in case (twopm vs 2pm)
+        p.total_ftm += safeNum(log.ftm ?? log.FTM);
+        p.total_fta += safeNum(log.fta ?? log.FTA);
+        p.total_2pm += safeNum(log.twopm ?? log['2pm'] ?? 0);
+        p.total_2pa += safeNum(log.twopa ?? log['2pa'] ?? 0);
+        p.total_3pm += safeNum(log.threepm ?? log['3pm'] ?? 0);
+        p.total_3pa += safeNum(log.threepa ?? log['3pa'] ?? 0);
+      }
+
+      const playerAvgs = Object.values(playerStats).map(p => {
+        const gp = p.gp || 1;
+        const total_fgm = (p.total_2pm ?? 0) + (p.total_3pm ?? 0);
+        const total_fga = (p.total_2pa ?? 0) + (p.total_3pa ?? 0);
+
+        return {
+          ...p,
+          ppg: (p.totalpoints ?? 0) / gp,
+          rpg: (p.rebounds ?? 0) / gp,
+          apg: (p.assists ?? 0) / gp,
+          bpg: (p.blocks ?? 0) / gp,
+          spg: (p.steals ?? 0) / gp,
+          tpg: (p.turnovers ?? 0) / gp,
+          fpg: (p.fouls ?? 0) / gp,
+          ft_percent: (p.total_fta ?? 0) > 0 ? (p.total_ftm ?? 0) / (p.total_fta ?? 0) : 0,
+          two_p_percent: (p.total_2pa ?? 0) > 0 ? (p.total_2pm ?? 0) / (p.total_2pa ?? 0) : 0,
+          three_p_percent: (p.total_3pa ?? 0) > 0 ? (p.total_3pm ?? 0) / (p.total_3pa ?? 0) : 0,
+          fg_percent: (total_fga > 0) ? total_fgm / total_fga : 0
         };
-        // Stores the current sorting state for each table
-        let SORT_STATE = {
-            standings: { key: 'Standings_Rank', direction: 'asc' },
-            teamAverages: { key: 'ppg', direction: 'desc' },
-            teamGameLogs: { key: 'week', direction: 'asc' }
-        };
+      });
 
-        // --- DOM ELEMENT REFERENCES ---
-        const ELS = {
-            // Filters
-            seasonFilter: document.getElementById('seasonFilter'),
-            divisionFilter: document.getElementById('divisionFilter'),
-            teamFilter: document.getElementById('teamFilter'),
-            weekFilter: document.getElementById('weekFilter'),
-            statTypeFilter: document.getElementById('statTypeFilter'),
-            
-            // Views & Tabs
-            views: {
-                standings: document.getElementById('view-standings'),
-                team: document.getElementById('view-team')
-            },
-            tabs: {
-                standings: document.querySelector('.tab-button[data-view="standings"]'),
-                team: document.querySelector('.tab-button[data-view="team"]')
-            },
-            
-            // Standings View
-            dataStatus: document.getElementById('dataStatus'),
-            totalTeams: document.getElementById('totalTeams'),
-            standingsTableBody: document.getElementById('standingsTableBody'),
-            leagueLeaders: document.getElementById('leagueLeaders'),
-            
-            // Team View
-            backToStandings: document.getElementById('backToStandings'),
-            teamNameHeader: document.getElementById('teamNameHeader'),
-            teamAveragesTable: document.getElementById('teamAveragesTable'),
-            teamGameLogsTable: document.getElementById('teamGameLogsTable'),
-            teamAveragesBody: document.getElementById('teamAveragesBody'),
-            teamGameLogsBody: document.getElementById('teamGameLogsBody')
-        };
+      return { playerAvgs };
+    }
 
-        // --- UTILITY FUNCTIONS ---
+    // -------------------------
+    // RENDERING
+    // -------------------------
+    function renderSummaryCards(currentStandings){
+      const totalTeams = [...new Set(currentStandings.map(s => s.Team))].length;
+      ELS.totalTeams.textContent = totalTeams;
+    }
 
-        /**
-         * Formats a percentage value (e.g., 0.758 -> .758)
-         */
-        function formatPercent(value) {
-            if (value === 1) return "1.000";
-            if (value === 0) return ".000";
-            return value.toFixed(3).toString().replace('0', ''); // 0.758 -> .758
+    function renderStandingsTable(standingsData){
+      // if input isn't array, fallback to ALL_STANDINGS filtered
+      const data = Array.isArray(standingsData) ? standingsData : ALL_STANDINGS;
+      const { key, direction } = SORT_STATE.standings;
+      const sorted = sortData(data, key, direction);
+
+      ELS.standingsTableBody.innerHTML = sorted.map(team => {
+        const diff = safeNum(team.Point_Diff);
+        const diffClass = diff > 0 ? 'text-green-600' : diff < 0 ? 'text-red-600' : 'text-gray-700';
+        const diffSign = diff > 0 ? '+' : '';
+        const winPct = (team.Win_Percent != null) ? (Number(team.Win_Percent).toFixed(3)) : '0.000';
+
+        const rank = team.Standings_Rank ?? '-';
+        const name = team.Team ?? '—';
+        const wins = safeNum(team.Wins);
+        const losses = safeNum(team.Losses);
+        const points = safeNum(team.Points);
+        const opp = safeNum(team.Opponent_Points);
+
+        return `
+          <tr class="table-row-hover cursor-pointer" data-team-name="${String(name).replace(/"/g,'&quot;')}">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">${rank}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-indigo-600">${name}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">${wins}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">${losses}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">${winPct}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">${points}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm">${opp}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold ${diffClass}">${diffSign}${diff}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderLeagueLeaders(playerLogs){
+      const { playerAvgs } = calculatePlayerAverages(playerLogs);
+      const categories = [
+        { key: 'ppg', title: 'Points', format: v => (v ? v.toFixed(1) : '0.0') },
+        { key: 'rpg', title: 'Rebounds', format: v => (v ? v.toFixed(1) : '0.0') },
+        { key: 'apg', title: 'Assists', format: v => (v ? v.toFixed(1) : '0.0') },
+        { key: 'bpg', title: 'Blocks', format: v => (v ? v.toFixed(1) : '0.0') },
+        { key: 'spg', title: 'Steals', format: v => (v ? v.toFixed(1) : '0.0') },
+        { key: 'fg_percent', title: 'FG%', format: formatPercent },
+        { key: 'three_p_percent', title: '3P%', format: formatPercent },
+        { key: 'ft_percent', title: 'FT%', format: formatPercent }
+      ];
+
+      ELS.leagueLeaders.innerHTML = categories.map(cat => {
+        const leaders = sortData(playerAvgs, cat.key, 'desc').slice(0,5);
+        const listItems = leaders.map((p,i) => {
+          const value = (p?.[cat.key] ?? 0);
+          const display = cat.format ? cat.format(value) : (value.toFixed ? value.toFixed(1) : String(value));
+          return `<li class="flex justify-between"><span>${i+1}. ${p.name} <span class="muted">(${p.team})</span></span><span class="font-bold text-indigo-600">${display}</span></li>`;
+        }).join('');
+        return `<div class="border rounded-md p-3"><h4 class="font-semibold text-sm mb-2">${cat.title}</h4><ol class="list-decimal list-inside space-y-2 text-sm">${listItems || '<li>No data</li>'}</ol></div>`;
+      }).join('');
+    }
+
+    function renderTeamAveragesTable(playerAvgs){
+      const { key, direction } = SORT_STATE.teamAverages;
+      const sorted = sortData(playerAvgs, key, direction);
+
+      ELS.teamAveragesBody.innerHTML = sorted.map(p => {
+        const fg = formatPercent(p.fg_percent);
+        const twoPm = safeNum(p.total_2pm);
+        const twoPa = safeNum(p.total_2pa);
+        const threePm = safeNum(p.total_3pm);
+        const threePa = safeNum(p.total_3pa);
+        const ftm = safeNum(p.total_ftm);
+        const fta = safeNum(p.total_fta);
+
+        return `
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-3 font-medium">${p.name}</td>
+            <td class="px-4 py-3">${p.gp}</td>
+            <td class="px-4 py-3 font-bold">${(p.ppg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.rpg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.apg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.bpg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.spg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.tpg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3">${(p.fpg ?? 0).toFixed(1)}</td>
+            <td class="px-4 py-3 font-medium">${fg}</td>
+            <td class="px-4 py-3">${twoPm}/${twoPa}</td>
+            <td class="px-4 py-3">${formatPercent(p.two_p_percent)}</td>
+            <td class="px-4 py-3">${threePm}/${threePa}</td>
+            <td class="px-4 py-3">${formatPercent(p.three_p_percent)}</td>
+            <td class="px-4 py-3">${ftm}/${fta}</td>
+            <td class="px-4 py-3">${formatPercent(p.ft_percent)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function renderTeamGameLogsTable(gameLogs){
+      const { key, direction } = SORT_STATE.teamGameLogs;
+      const sorted = sortData(gameLogs, key, direction);
+      ELS.teamGameLogsBody.innerHTML = sorted.map(log => {
+        const twopm = safeNum(log.twopm ?? log['2pm']);
+        const twopa = safeNum(log.twopa ?? log['2pa']);
+        const threepm = safeNum(log.threepm ?? log['3pm']);
+        const threepa = safeNum(log.threepa ?? log['3pa']);
+        const ftm = safeNum(log.ftm);
+        const fta = safeNum(log.fta);
+
+        return `
+          <tr class="hover:bg-gray-50">
+            <td class="px-4 py-3 font-medium">${safeNum(log.week)}</td>
+            <td class="px-4 py-3 font-medium">${log.name}</td>
+            <td class="px-4 py-3 font-bold">${safeNum(log.totalpoints)}</td>
+            <td class="px-4 py-3">${safeNum(log.rebounds)}</td>
+            <td class="px-4 py-3">${safeNum(log.assists)}</td>
+            <td class="px-4 py-3">${safeNum(log.blocks)}</td>
+            <td class="px-4 py-3">${safeNum(log.steals)}</td>
+            <td class="px-4 py-3">${safeNum(log.turnovers)}</td>
+            <td class="px-4 py-3">${safeNum(log.fouls)}</td>
+            <td class="px-4 py-3">${formatPercent(log.fg_percent ?? 0)}</td>
+            <td class="px-4 py-3">${twopm}/${twopa}</td>
+            <td class="px-4 py-3">${formatPercent(log.two_p_percent ?? 0)}</td>
+            <td class="px-4 py-3">${threepm}/${threepa}</td>
+            <td class="px-4 py-3">${formatPercent(log.three_p_percent ?? 0)}</td>
+            <td class="px-4 py-3">${ftm}/${fta}</td>
+            <td class="px-4 py-3">${formatPercent(log.ft_percent ?? 0)}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function toggleTeamStatView(){
+      const type = ELS.statTypeFilter?.value;
+      if (type === 'gamelogs'){
+        ELS.teamAveragesTable.classList.add('hidden');
+        ELS.teamGameLogsTable.classList.remove('hidden');
+      } else {
+        ELS.teamAveragesTable.classList.remove('hidden');
+        ELS.teamGameLogsTable.classList.add('hidden');
+      }
+    }
+
+    // -------------------------
+    // Filters / Populate
+    // -------------------------
+    function populateFilters(){
+      const seasons = Object.keys(LEAGUE_DATA);
+      ELS.seasonFilter.innerHTML = seasons.map(s => `<option value="${s}">${s}</option>`).join('');
+      CURRENT_FILTERS.season = seasons[0];
+
+      const allDivisions = [...new Set(ALL_STANDINGS.map(s => s.Division ?? s.division ?? ''))];
+      const validDivisions = allDivisions.filter(d => d && String(d).trim() !== '').sort((a,b)=> (String(a).localeCompare(String(b))));
+      ELS.divisionFilter.innerHTML = '<option value="all">All Divisions</option>' + validDivisions.map(d => `<option value="${d}">${d}</option>`).join('');
+
+      // ensure default division "2" if exists, else 'all'
+      if (validDivisions.includes("2") || validDivisions.includes(2)){
+        ELS.divisionFilter.value = "2";
+        CURRENT_FILTERS.division = "2";
+      } else {
+        ELS.divisionFilter.value = "all";
+        CURRENT_FILTERS.division = "all";
+      }
+
+      // week options
+      const maxWeek = ALL_PLAYERS.reduce((m,p) => Math.max(m, Number(p.week ?? 0)), 0);
+      let weekOptions = '<option value="all">All Weeks</option>';
+      for (let i=1;i<=maxWeek;i++){ weekOptions += `<option value="${i}">Weeks 1-${i}</option>`; }
+      ELS.weekFilter.innerHTML = weekOptions;
+      ELS.weekFilter.value = "all";
+
+      populateTeamFilter();
+    }
+
+    function populateTeamFilter(){
+      const div = CURRENT_FILTERS.division;
+      let teams = (div === 'all') ? ALL_STANDINGS : ALL_STANDINGS.filter(s => String(s.Division ?? s.division) === String(div));
+      teams = teams.filter(t=> t.Team && String(t.Team).trim() !== "");
+      const teamNames = [...new Set(teams.map(t => t.Team))].sort();
+      ELS.teamFilter.innerHTML = '<option value="all">All Teams</option>' + teamNames.map(t => `<option value="${t}">${t}</option>`).join('');
+      if (teamNames.includes(CURRENT_FILTERS.team)) {
+        ELS.teamFilter.value = CURRENT_FILTERS.team;
+      } else {
+        ELS.teamFilter.value = 'all';
+        CURRENT_FILTERS.team = 'all';
+      }
+    }
+
+    // -------------------------
+    // Views & Interactions
+    // -------------------------
+    function setTabView(viewName){
+      // If view-team should display, toggle hero section
+      if (viewName === 'team'){
+        document.getElementById('view-team').classList.remove('hidden');
+      } else {
+        document.getElementById('view-team').classList.add('hidden');
+      }
+    }
+
+    function renderDashboard(){
+      if (!LEAGUE_DATA || !CURRENT_FILTERS.season){
+        ELS.dataStatus.textContent = 'Data structure error.';
+        return;
+      }
+
+      const currentStandings = ALL_STANDINGS.filter(s => (CURRENT_FILTERS.division === 'all' || String(s.Division ?? s.division) === String(CURRENT_FILTERS.division))
+        && (s.Team && String(s.Team).trim() !== ''));
+
+      const { filteredLogs } = getFilteredPlayerData();
+
+      renderSummaryCards(currentStandings);
+      renderStandingsTable(currentStandings);
+      renderLeagueLeaders(filteredLogs);
+      // if a team is active, render team view
+      if (CURRENT_FILTERS.team && CURRENT_FILTERS.team !== 'all'){
+        renderTeamView();
+      } else {
+        setTabView('standings');
+      }
+    }
+
+    function renderTeamView(){
+      const teamName = CURRENT_FILTERS.team;
+      if (!teamName || teamName === 'all') {
+        setTabView('standings');
+        return;
+      }
+
+      const { filteredLogs } = getFilteredPlayerData();
+      ELS.teamNameHeader.textContent = teamName;
+
+      const { playerAvgs } = calculatePlayerAverages(filteredLogs);
+      renderTeamAveragesTable(playerAvgs);
+      renderTeamGameLogsTable(filteredLogs);
+      toggleTeamStatView();
+      setTabView('team');
+    }
+
+    // -------------------------
+    // Init & Listeners
+    // -------------------------
+    async function init(){
+      try {
+        const response = await fetch('league_data.json');
+        if (!response.ok) throw new Error('Failed to fetch league_data.json: ' + response.status);
+        LEAGUE_DATA = await response.json();
+
+        const firstSeason = Object.keys(LEAGUE_DATA)[0];
+        if (!firstSeason) throw new Error('JSON missing seasons.');
+
+        ALL_STANDINGS = (LEAGUE_DATA[firstSeason].finalStandings || []).filter(s => (s.Division ?? s.division) && String(s.Division ?? s.division).trim() !== '');
+        ALL_PLAYERS = (LEAGUE_DATA[firstSeason].playerGameLogs || []).filter(p => (p.division ?? p.Division) && String(p.division ?? p.Division).trim() !== '');
+
+        ELS.dataStatus.textContent = 'Data Loaded Successfully';
+        ELS.dataStatus.classList.add('text-green-600');
+
+        populateFilters();
+        renderDashboard();
+      } catch (err){
+        console.error(err);
+        ELS.dataStatus.textContent = 'Error Loading Data — see console.';
+        ELS.dataStatus.classList.add('text-red-600');
+      }
+    }
+
+    function attachListeners(){
+      (ELS.seasonFilter).addEventListener('change', (e) => {
+        CURRENT_FILTERS.season = e.target.value;
+        // at scale you'd re-fetch season-specific data here
+        renderDashboard();
+      });
+
+      ELS.divisionFilter.addEventListener('change', (e) => {
+        CURRENT_FILTERS.division = e.target.value;
+        populateTeamFilter();
+        renderDashboard();
+      });
+
+      ELS.teamFilter.addEventListener('change', (e) => {
+        CURRENT_FILTERS.team = e.target.value;
+        if (CURRENT_FILTERS.team === 'all'){
+          setTabView('standings');
+        } else {
+          renderTeamView();
         }
+      });
 
-        /**
-         * Generic sort function for tables
-         * @param {Array} data - The array of objects to sort
-         * @param {string} key - The object key to sort by
-         * @param {string} direction - 'asc' or 'desc'
-         */
-        function sortData(data, key, direction) {
-            return [...data].sort((a, b) => {
-                let aVal = a[key] || 0;
-                let bVal = b[key] || 0;
-                
-                if (key === 'name' || key === 'Team') { // String sort
-                    aVal = a[key] || "";
-                    bVal = b[key] || "";
-                    return direction === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
-                }
+      ELS.weekFilter.addEventListener('change', (e) => {
+        CURRENT_FILTERS.week = e.target.value;
+        renderDashboard();
+      });
 
-                // Numeric sort
-                return direction === 'asc' ? aVal - bVal : bVal - aVal;
-            });
-        }
-        
-        /**
-         * Generic click handler for sortable headers
-         * @param {Event} e - The click event
-         * @param {string} tableKey - Key for SORT_STATE (e.g., 'standings')
-         * @param {Function} renderFn - The function to call to re-render the table
-         */
-        function handleSortClick(e, tableKey, renderFn) {
-            const newKey = e.currentTarget.dataset.sort;
-            if (!newKey) return;
-
-            let newDirection = 'desc';
-            if (SORT_STATE[tableKey].key === newKey && SORT_STATE[tableKey].direction === 'desc') {
-                newDirection = 'asc';
-            }
-            
-            SORT_STATE[tableKey] = { key: newKey, direction: newDirection };
-            renderFn(); // Re-render the specific table
-        }
-
-
-        // --- VIEW & FILTER LOGIC ---
-
-        /**
-         * Switches between the 'standings' and 'team' views
-         * @param {string} viewName - 'standings' or 'team'
-         */
-        function setTabView(viewName) {
-            Object.values(ELS.views).forEach(v => v.classList.add('hidden'));
-            Object.values(ELS.tabs).forEach(t => t.classList.remove('active'));
-
-            if (viewName === 'team') {
-                ELS.views.team.classList.remove('hidden');
-                ELS.tabs.team.classList.remove('hidden');
-                ELS.tabs.team.classList.add('active');
-            } else { // Default to standings
-                ELS.views.standings.classList.remove('hidden');
-                ELS.tabs.standings.classList.add('active');
-                ELS.tabs.team.classList.add('hidden');
-            }
-        }
-
-        /**
-         * Populates all filter dropdowns based on loaded data
-         */
-        function populateFilters() {
-            const seasons = Object.keys(LEAGUE_DATA);
-            ELS.seasonFilter.innerHTML = seasons.map(s => `<option value="${s}">${s}</option>`).join('');
-            
-            // Set current season (assuming one for now)
-            CURRENT_FILTERS.season = seasons[0];
-
-            // Get all unique divisions, filter out blanks
-            const allDivisions = [...new Set(ALL_STANDINGS.map(s => s.Division))];
-            const validDivisions = allDivisions.filter(d => d && d.trim() !== "").sort();
-
-            ELS.divisionFilter.innerHTML = '<option value="all">All Divisions</option>' + 
-                                        validDivisions.map(d => `<option value="${d}">${d}</option>`).join('');
-
-            // Set default division to D2 if it exists, otherwise 'all'
-            if (validDivisions.includes("D2")) {
-                ELS.divisionFilter.value = "D2";
-                CURRENT_FILTERS.division = "D2";
-            } else {
-                ELS.divisionFilter.value = "all";
-                CURRENT_FILTERS.division = "all";
-            }
-            
-            // Get max week from player logs
-            const maxWeek = ALL_PLAYERS.reduce((max, p) => p.week > max ? p.week : max, 0);
-            let weekOptions = '<option value="all">All Weeks</option>';
-            for (let i = 1; i <= maxWeek; i++) {
-                weekOptions += `<option value="${i}">Weeks 1-${i}</option>`;
-            }
-            ELS.weekFilter.innerHTML = weekOptions;
-            ELS.weekFilter.value = "all"; // Default to all weeks
-            
-            // Populate teams based on the (default) division
-            populateTeamFilter();
-        }
-        
-        /**
-         * Populates the team filter based on the selected division (cascading filter)
-         */
-        function populateTeamFilter() {
-            const div = CURRENT_FILTERS.division;
-            
-            let teams = div === 'all' 
-                ? ALL_STANDINGS 
-                : ALL_STANDINGS.filter(s => s.Division === div);
-                
-            // Filter out blank team names
-            teams = teams.filter(t => t.Team && t.Team.trim() !== "");
-
-            const teamNames = [...new Set(teams.map(t => t.Team))].sort();
-            
-            ELS.teamFilter.innerHTML = '<option value="all">All Teams</option>' + 
-                                       teamNames.map(t => `<option value="${t}">${t}</option>`).join('');
-            
-            // If the previously selected team is still in this division, keep it.
-            // Otherwise, reset to 'all teams'.
-            if (teamNames.includes(CURRENT_FILTERS.team)) {
-                ELS.teamFilter.value = CURRENT_FILTERS.team;
-            } else {
-                ELS.teamFilter.value = "all";
-                CURRENT_FILTERS.team = "all";
-            }
-        }
-
-
-        // --- DATA RENDERING FUNCTIONS ---
-        
-        /**
-         * Main render function, called when data or filters change
-         */
-        function renderDashboard() {
-            if (!LEAGUE_DATA || !CURRENT_FILTERS.season) {
-                ELS.dataStatus.textContent = "Data structure error.";
-                return;
-            }
-            
-            // 1. Get filtered data
-            const currentStandings = ALL_STANDINGS.filter(s => {
-                return (CURRENT_FILTERS.division === 'all' || s.Division === CURRENT_FILTERS.division) &&
-                       (s.Team && s.Team.trim() !== ""); // Filter blanks
-            });
-            
-            const { filteredLogs, filteredPlayersByTeam } = getFilteredPlayerData();
-
-            // 2. Render summary cards
-            renderSummaryCards(currentStandings);
-            
-            // 3. Render standings table
-            renderStandingsTable(currentStandings);
-            
-            // 4. Render league leaders
-            renderLeagueLeaders(filteredLogs);
-            
-            // 5. Render team view (if active)
-            renderTeamView();
-        }
-        
-        /**
-         * Updates the simple summary cards at the top
-         */
-        function renderSummaryCards(currentStandings) {
-            // Get unique teams from the filtered standings
-            const totalTeams = [...new Set(currentStandings.map(s => s.Team))].length;
-            ELS.totalTeams.textContent = totalTeams;
-            // Other cards removed per request
-        }
-
-        /**
-         * Renders the main standings table
-         */
-        function renderStandingsTable(standingsData) {
-            // 1. Sort the data
-            const { key, direction } = SORT_STATE.standings;
-            const sortedStandings = sortData(standingsData, key, direction);
-            
-            // 2. Build HTML
-            ELS.standingsTableBody.innerHTML = sortedStandings.map(team => {
-                const diff = team.Point_Diff || 0;
-                const diffClass = diff > 0 ? 'text-green-600' : diff < 0 ? 'text-red-600' : 'text-gray-700';
-                const diffSign = diff > 0 ? '+' : '';
-                
-                // Use Win_Percent from JSON, format to 3 decimals
-                const winPct = team.Win_Percent != null ? team.Win_Percent.toFixed(3) : '0.000';
-
-                return `
-                    <tr class="hover:bg-gray-50 cursor-pointer" data-team-name="${team.Team}">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${team.Standings_Rank || '-'}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-indigo-600 hover:underline">${team.Team}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${team.Wins}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${team.Losses}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${winPct}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${team.Points}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${team.Opponent_Points}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-bold ${diffClass}">${diffSign}${diff}</td>
-                    </tr>
-                `;
-            }).join('');
-        }
-        
-        /**
-         * Renders the Top 5 League Leaders section
-         */
-        function renderLeagueLeaders(playerLogs) {
-            // 1. Calculate Averages for all players
-            const { playerAvgs } = calculatePlayerAverages(playerLogs);
-            
-            // 2. Define categories to display
-            const categories = [
-                { key: 'ppg', title: 'Points' },
-                { key: 'rpg', title: 'Rebounds' },
-                { key: 'apg', title: 'Assists' },
-                { key: 'bpg', title: 'Blocks' },
-                { key: 'spg', title: 'Steals' },
-                { key: 'fg_percent', title: 'FG%', format: formatPercent },
-                { key: 'three_p_percent', title: '3P%', format: formatPercent },
-                { key: 'ft_percent', title: 'FT%', format: formatPercent },
-            ];
-
-            // 3. Build HTML
-            ELS.leagueLeaders.innerHTML = categories.map(cat => {
-                // Sort by the category and take top 5
-                const leaders = sortData(playerAvgs, cat.key, 'desc').slice(0, 5);
-                
-                const listItems = leaders.map((p, index) => {
-                    const value = p[cat.key] || 0;
-                    const displayValue = cat.format ? cat.format(value) : value.toFixed(1);
-                    return `
-                        <li>
-                            <span class="font-medium">${index + 1}. ${p.name}</span> (${p.team})
-                            <span class="float-right font-bold text-indigo-600">${displayValue}</span>
-                        </li>
-                    `;
-                }).join('');
-
-                return `
-                    <div class="border border-gray-200 rounded-lg p-4">
-                        <h3 class="font-bold text-indigo-700">${cat.title}</h3>
-                        <ol class="mt-2 space-y-1 text-sm">
-                            ${listItems || '<li>No data available.</li>'}
-                        </ol>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        /**
-         * Renders the entire Team View (Averages and Game Logs)
-         */
-        function renderTeamView() {
-            const teamName = CURRENT_FILTERS.team;
-            if (teamName === 'all') {
-                setTabView('standings'); // Go back if no team is selected
-                return;
-            }
-
-            // 1. Get all logs for this specific team and filtered weeks
-            const { filteredLogs } = getFilteredPlayerData();
-            
-            // 2. Set header
-            ELS.teamNameHeader.textContent = teamName;
-            
-            // 3. Calculate Averages
-            const { playerAvgs } = calculatePlayerAverages(filteredLogs);
-            
-            // 4. Render the tables
-            renderTeamAveragesTable(playerAvgs);
-            renderTeamGameLogsTable(filteredLogs);
-            
-            // 5. Show the correct table based on the toggle
-            toggleTeamStatView();
-        }
-        
-        /**
-         * Renders the Player Averages table in the Team View
-         */
-        function renderTeamAveragesTable(playerAvgs) {
-            const { key, direction } = SORT_STATE.teamAverages;
-            const sortedPlayers = sortData(playerAvgs, key, direction);
-            
-            ELS.teamAveragesBody.innerHTML = sortedPlayers.map(p => {
-                return `
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-4 py-3 whitespace-nowrap font-medium text-gray-900">${p.name}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.gp}</td>
-                        <td class="px-4 py-3 whitespace-nowrap font-bold">${p.ppg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.rpg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.apg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.bpg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.spg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.tpg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.fpg.toFixed(1)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap font-medium ${p.fg_percent > 0.5 ? 'text-green-600' : 'text-gray-700'}">${formatPercent(p.fg_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.total_2pm}/${p.total_2pa}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(p.two_p_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.total_3pm}/${p.total_3pa}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(p.three_p_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${p.total_ftm}/${p.total_fta}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(p.ft_percent)}</td>
-                    </tr>
-                `;
-            }).join('');
-        }
-        
-        /**
-         * Renders the Player Game Logs table in the Team View
-         */
-        function renderTeamGameLogsTable(gameLogs) {
-            const { key, direction } = SORT_STATE.teamGameLogs;
-            const sortedLogs = sortData(gameLogs, key, direction);
-            
-            ELS.teamGameLogsBody.innerHTML = sortedLogs.map(log => {
-                return `
-                    <tr class="hover:bg-gray-50">
-                        <td class="px-4 py-3 whitespace-nowrap font-medium text-gray-900">${log.week}</td>
-                        <td class="px-4 py-3 whitespace-nowrap font-medium text-gray-900">${log.name}</td>
-                        <td class="px-4 py-3 whitespace-nowrap font-bold">${log.totalpoints}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.rebounds}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.assists}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.blocks}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.steals}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.turnovers}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.fouls}</td>
-                        <td class="px-4 py-3 whitespace-nowrap font-medium ${log.fg_percent > 0.5 ? 'text-green-600' : 'text-gray-700'}">${formatPercent(log.fg_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.twopm}/${log.twopa}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(log.two_p_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.threepm}/${log.threepa}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(log.three_p_percent)}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${log.ftm}/${log.fta}</td>
-                        <td class="px-4 py-3 whitespace-nowrap">${formatPercent(log.ft_percent)}</td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        /**
-         * Shows/Hides the Averages vs Game Logs tables in Team View
-         */
-        function toggleTeamStatView() {
-            const type = ELS.statTypeFilter.value;
-            if (type === 'gamelogs') {
-                ELS.teamAveragesTable.classList.add('hidden');
-                ELS.teamGameLogsTable.classList.remove('hidden');
-            } else { // 'averages'
-                ELS.teamAveragesTable.classList.remove('hidden');
-                ELS.teamGameLogsTable.classList.add('hidden');
-            }
-        }
-
-        // --- DATA CALCULATION & FILTERING ---
-
-        /**
-         * Gets all player logs based on the current global filters
-         */
-        function getFilteredPlayerData() {
-            const season = CURRENT_FILTERS.season;
-            const div = CURRENT_FILTERS.division;
-            const team = CURRENT_FILTERS.team;
-            const week = CURRENT_FILTERS.week === 'all' ? 999 : parseInt(CURRENT_FILTERS.week, 10);
-
-            if (!season || !LEAGUE_DATA[season]) {
-                return { filteredLogs: [], filteredPlayersByTeam: {} };
-            }
-            
-            const logs = LEAGUE_DATA[season].playerGameLogs;
-            
-            const filteredLogs = logs.filter(log => {
-                // Filter out blank/null players and teams
-                if (!log.name || log.name.trim() === "" || !log.team || log.team.trim() === "") {
-                    return false;
-                }
-                return (div === 'all' || log.division === div) &&
-                       (team === 'all' || log.team === team) &&
-                       (log.week <= week);
-            });
-            
-            // Group players by team (used for Team Filter population)
-            const filteredPlayersByTeam = filteredLogs.reduce((acc, log) => {
-                if (!acc[log.team]) acc[log.team] = [];
-                acc[log.team].push(log.name);
-                return acc;
-            }, {});
-
-            return { filteredLogs, filteredPlayersByTeam };
-        }
-
-        /**
-         * Calculates all per-game averages from a given set of game logs
-         * @param {Array} playerLogs - A list of player game log objects
-         * @returns {Object} { playerAvgs: Array, teamAvgs: Object }
-         */
-        function calculatePlayerAverages(playerLogs) {
-            const playerStats = {}; // Stores totals: { "Player Name": { gp: 0, totalpoints: 0, ... } }
-            
-            // 1. Sum all stats from game logs
-            for (const log of playerLogs) {
-                const name = log.name;
-                if (!playerStats[name]) {
-                    playerStats[name] = {
-                        name: name,
-                        team: log.team, // Assumes player is on one team for this filter
-                        gp: 0,
-                        totalpoints: 0, rebounds: 0, assists: 0, blocks: 0, steals: 0, turnovers: 0, fouls: 0,
-                        total_ftm: 0, total_fta: 0,
-                        total_2pm: 0, total_2pa: 0,
-                        total_3pm: 0, total_3pa: 0,
-                    };
-                }
-                
-                playerStats[name].gp += 1;
-                playerStats[name].totalpoints += log.totalpoints || 0;
-                playerStats[name].rebounds += log.rebounds || 0;
-                playerStats[name].assists += log.assists || 0;
-                playerStats[name].blocks += log.blocks || 0;
-                playerStats[name].steals += log.steals || 0;
-                playerStats[name].turnovers += log.turnovers || 0;
-                playerStats[name].fouls += log.fouls || 0;
-                
-                playerStats[name].total_ftm += log.ftm || 0;
-                playerStats[name].total_fta += log.fta || 0;
-                playerStats[name].total_2pm += log.twopm || 0;
-                playerStats[name].total_2pa += log.twopa || 0;
-                playerStats[name].total_3pm += log.threepm || 0;
-                playerStats[name].total_3pa += log.threepa || 0;
-            }
-            
-            // 2. Calculate Averages
-            const playerAvgs = Object.values(playerStats).map(p => {
-                const gp = p.gp || 1; // Avoid division by zero
-                
-                // Calculate total FGM/FGA
-                const total_fgm = p.total_2pm + p.total_3pm;
-                const total_fga = p.total_2pa + p.total_3pa;
-
-                return {
-                    ...p,
-                    ppg: p.totalpoints / gp,
-                    rpg: p.rebounds / gp,
-                    apg: p.assists / gp,
-                    bpg: p.blocks / gp,
-                    spg: p.steals / gp,
-                    tpg: p.turnovers / gp,
-                    fpg: p.fouls / gp,
-                    
-                    // Shooting percentages
-                    ft_percent: p.total_fta > 0 ? (p.total_ftm / p.total_fta) : 0,
-                    two_p_percent: p.total_2pa > 0 ? (p.total_2pm / p.total_2pa) : 0,
-                    three_p_percent: p.total_3pa > 0 ? (p.total_3pm / p.total_3pa) : 0,
-                    fg_percent: total_fga > 0 ? (total_fgm / total_fga) : 0,
-                };
-            });
-            
-            return { playerAvgs };
-        }
-
-
-        // --- INITIALIZATION & EVENT LISTENERS ---
-
-        /**
-         * Main function to fetch data and initialize the app
-         */
-        async function init() {
-            try {
-                // Fetch the consolidated data file
-                const response = await fetch('league_data.json');
-                if (!response.ok) {
-                    throw new Error(`Failed to fetch league_data.json (Status: ${response.status})`);
-                }
-                LEAGUE_DATA = await response.json();
-                
-                // Set initial data from the (first) season
-                const firstSeason = Object.keys(LEAGUE_DATA)[0];
-                if (!firstSeason) {
-                    throw new Error("JSON data is empty or missing season key.");
-                }
-                
-                // Filter out blank/null divisions from the start
-                ALL_STANDINGS = LEAGUE_DATA[firstSeason].finalStandings.filter(s => s.Division && s.Division.trim() !== "");
-                ALL_PLAYERS = LEAGUE_DATA[firstSeason].playerGameLogs.filter(p => p.division && p.division.trim() !== "");
-
-                ELS.dataStatus.textContent = "Data Loaded Successfully";
-                ELS.dataStatus.classList.replace('text-gray-500', 'text-green-600');
-                ELS.dataStatus.classList.replace('bg-gray-100', 'bg-green-100');
-                
-                // Once data is loaded, set up the page
-                populateFilters();
-                renderDashboard();
-                
-            } catch (error) {
-                console.error("Initialization Error:", error);
-                ELS.dataStatus.textContent = "Error Loading Data! See Console.";
-                ELS.dataStatus.classList.replace('text-gray-500', 'text-red-600');
-                ELS.dataStatus.classList.replace('bg-gray-100', 'bg-red-100');
-            }
-        }
-
-        /**
-         * Attach all event listeners to the DOM
-         */
-        function attachListeners() {
-            // Filter Listeners
-            ELS.seasonFilter.addEventListener('change', (e) => {
-                CURRENT_FILTERS.season = e.target.value;
-                // In a multi-season app, you'd reload ALL_PLAYERS/ALL_STANDINGS here
-                // For now, just re-render
-                renderDashboard();
-            });
-            
-            ELS.divisionFilter.addEventListener('change', (e) => {
-                CURRENT_FILTERS.division = e.target.value;
-                // Repopulate the team filter (cascading)
-                populateTeamFilter(); 
-                renderDashboard();
-            });
-            
-            ELS.teamFilter.addEventListener('change', (e) => {
-                CURRENT_FILTERS.team = e.target.value;
-                if (CURRENT_FILTERS.team === 'all') {
-                    setTabView('standings');
-                } else {
-                    renderTeamView(); // Render team view first
-                    setTabView('team'); // Then switch to it
-                }
-            });
-            
-            ELS.weekFilter.addEventListener('change', (e) => {
-                CURRENT_FILTERS.week = e.target.value;
-                renderDashboard(); // Re-render everything for the new week range
-            });
-            
-            // Tab Listeners
-            ELS.tabs.standings.addEventListener('click', () => {
-                CURRENT_FILTERS.team = 'all'; // Reset team filter
-                ELS.teamFilter.value = 'all';
-                setTabView('standings');
-            });
-            
-            // Team View Listeners
-            ELS.backToStandings.addEventListener('click', () => {
-                CURRENT_FILTERS.team = 'all';
-                ELS.teamFilter.value = 'all';
-                setTabView('standings');
-            });
-            
-            ELS.statTypeFilter.addEventListener('change', toggleTeamStatView);
-            
-            // Table Sort Listeners
-            document.querySelector('#standingsTableBody').parentElement.querySelector('thead').addEventListener('click', (e) => {
-                handleSortClick(e, 'standings', () => renderStandingsTable(getFilteredPlayerData().filteredLogs));
-            });
-            
-            ELS.teamAveragesTable.querySelector('thead').addEventListener('click', (e) => {
-                handleSortClick(e, 'teamAverages', renderTeamView);
-            });
-            
-            ELS.teamGameLogsTable.querySelector('thead').addEventListener('click', (e) => {
-                handleSortClick(e, 'teamGameLogs', renderTeamView);
-            });
-            
-            // Dynamic listener for clicking on a team name in the standings
-            ELS.standingsTableBody.addEventListener('click', (e) => {
-                const row = e.target.closest('tr');
-                if (row && row.dataset.teamName) {
-                    const teamName = row.dataset.teamName;
-                    CURRENT_FILTERS.team = teamName;
-                    ELS.teamFilter.value = teamName;
-                    renderTeamView();
-                    setTabView('team');
-                }
-            });
-        }
-
-        // --- RUN APP ---
-        // Start the application once the DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            init(); // Fetch data and build the page
-            attachListeners(); // Attach all event handlers
+      if (ELS.backToStandings){
+        ELS.backToStandings.addEventListener('click', () => {
+          CURRENT_FILTERS.team = 'all';
+          ELS.teamFilter.value = 'all';
+          setTabView('standings');
         });
+      }
 
-    </script>
+      // sort headers: delegate clicks and find nearest TH
+      document.querySelectorAll('.sortable-header').forEach(th => {
+        th.addEventListener('click', (ev) => {
+          // find position / column index to map to a key — keep simple: use dataset if present; else toggle by text
+          const headerText = th.textContent.trim().toLowerCase();
+          // map common headings to keys
+          let keyMap = {
+            'rank': 'Standings_Rank',
+            'team': 'Team',
+            'w': 'Wins',
+            'l': 'Losses',
+            'win %': 'Win_Percent',
+            'pf': 'Points',
+            'pa': 'Opponent_Points',
+            'diff': 'Point_Diff',
+            'player': 'name',
+            'gp': 'gp',
+            'pts': 'ppg',
+            'reb': 'rpg',
+            'ast': 'apg'
+            // extend as needed
+          };
+          const activeTable = th.closest('table');
+          // choose state to update
+          if (activeTable && activeTable.parentElement && activeTable.parentElement.previousElementSibling){
+            // if click happened on standings table (first big table)
+            // for safety, detect using standingsTableBody presence:
+            if (th.closest('table').querySelector('#standingsTableBody') || th.closest('table') === document.querySelector('#standingsTableBody') ){
+              const key = keyMap[headerText] || 'Standings_Rank';
+              // toggle direction
+              let dir = 'desc';
+              if (SORT_STATE.standings.key === key && SORT_STATE.standings.direction === 'desc') dir = 'asc';
+              SORT_STATE.standings = { key, direction: dir };
+              renderStandingsTable(getFilteredPlayerData().filteredLogs.length ? getFilteredPlayerData().filteredLogs : ALL_STANDINGS);
+            } else if (th.closest('#teamAveragesTable')){
+              const key = keyMap[headerText] || 'ppg';
+              let dir = 'desc';
+              if (SORT_STATE.teamAverages.key === key && SORT_STATE.teamAverages.direction === 'desc') dir = 'asc';
+              SORT_STATE.teamAverages = { key, direction: dir };
+              renderTeamView();
+            } else if (th.closest('#teamGameLogsTable')){
+              const key = keyMap[headerText] || 'week';
+              let dir = 'asc';
+              if (SORT_STATE.teamGameLogs.key === key && SORT_STATE.teamGameLogs.direction === 'asc') dir = 'desc';
+              SORT_STATE.teamGameLogs = { key, direction: dir };
+              renderTeamView();
+            }
+          }
+        });
+      });
+
+      // click a row to open team view
+      ELS.standingsTableBody.addEventListener('click', (e) => {
+        const row = e.target.closest('tr');
+        if (row && row.dataset.teamName){
+          const teamName = row.dataset.teamName;
+          CURRENT_FILTERS.team = teamName;
+          // set select value if exists
+          try { ELS.teamFilter.value = teamName; } catch {}
+          renderTeamView();
+        }
+      });
+
+      // stat toggle
+      ELS.statTypeFilter.addEventListener('change', toggleTeamStatView);
+    }
+
+    // -------------------------
+    // Boot
+    // -------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      attachListeners();
+    });
+  </script>
 </body>
 </html>
