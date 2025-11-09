@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just Hoops Stats Dashboard</title>
+    <title>Rec League Stats Dashboard</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use Inter font -->
@@ -48,7 +48,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 mr-3 text-indigo-600">
                     <path fill-rule="evenodd" d="M11.54 22.351A2.25 2.25 0 0 0 14.15 22.5h2.25a2.25 2.25 0 0 0 2.602-1.78l.842-4.212A2.25 2.25 0 0 0 17.5 14.25h-4.75a.75.75 0 0 1-.75-.75V8.526a4.5 4.5 0 0 0 3.75-4.493V3a.75.75 0 0 0-.75-.75h-8.25A.75.75 0 0 0 6 3v.033a4.5 4.5 0 0 0 3.75 4.493v5.478a.75.75 0 0 1-.75.75H4.25a2.25 2.25 0 0 0-2.602 2.756l.842 4.212A2.25 2.25 0 0 0 4.85 22.5h2.25a2.25 2.25 0 0 0 2.602-1.78l.108-.54h.878l.108.54Z" clip-rule="evenodd" />
                 </svg>
-                Just Hoops Stats
+                Rec League Stats
             </h1>
             <p class="text-gray-500 text-lg" id="subTitle">
                 Winter 2025 Season Overview.
@@ -78,7 +78,7 @@
             </div>
 
             <div id="dataStatus" class="bg-indigo-100 text-indigo-700 p-2 rounded-lg text-sm font-medium shrink-0 ml-auto">
-                Loading data...
+                Initializing...
             </div>
         </div>
 
@@ -200,7 +200,10 @@
                 // Calculate average of every stat
                 const averages = data.logs.reduce((acc, log) => {
                     STAT_COLUMNS.filter(c => c.isNumeric).forEach(col => {
-                        acc[col.key] = (acc[col.key] || 0) + log[col.key] / gamesPlayed;
+                        // Skip jersey number in average calculation
+                        if (col.key !== 'jersey') {
+                            acc[col.key] = (acc[col.key] || 0) + log[col.key] / gamesPlayed;
+                        }
                     });
                     return acc;
                 }, {});
@@ -217,7 +220,7 @@
                     name: firstLog.name,
                     team: firstLog.team,
                     division: firstLog.division,
-                    jersey: firstLog.jersey,
+                    jersey: firstLog.jersey, // Use jersey from first log, assume it's constant
                     games_played: gamesPlayed,
                     ...averages,
                     // Calculated percentages overwrite averaged percentages
@@ -301,7 +304,8 @@
                 if (tabEl) tabEl.classList.remove('tab-active');
             });
             const activeTabEl = document.getElementById(`tab-${view}`);
-            if (activeTabEl) activeTabEl.classList.add('tab-active');
+            // Only add active class if it's one of the main tabs
+            if (activeTabEl) activeTabEl.classList.add('tab-active'); 
             
             // Manage Controls and Title
             if (view === 'standings') {
@@ -383,6 +387,8 @@
                         <option value="gamelogs">Game Logs</option>
                     </select>
                 `;
+            } else {
+                 // Player Stats (Global) only needs search and season selector (already global)
             }
         }
         
@@ -392,15 +398,17 @@
             // Logic remains similar, calculating averages across the whole data set
             // ... (keeping the existing function structure) ...
             const cardContainer = document.getElementById('summaryCards');
+            
+            const totalPlayers = data.length;
+
             if (data.length === 0) {
                 cardContainer.innerHTML = '';
                 return;
             }
             
-            const totalPlayers = data.length;
-            const totalPoints = data.reduce((sum, p) => sum + p.totalpoints, 0);
-            const totalRebounds = data.reduce((sum, p) => sum + p.rebounds, 0);
-            const totalAssists = data.reduce((sum, p) => sum + p.assists, 0);
+            const totalPoints = data.reduce((sum, p) => sum + (p.totalpoints || 0), 0);
+            const totalRebounds = data.reduce((sum, p) => sum + (p.rebounds || 0), 0);
+            const totalAssists = data.reduce((sum, p) => sum + (p.assists || 0), 0);
 
             const avgPts = (totalPoints / totalPlayers).toFixed(1);
             const avgReb = (totalRebounds / totalPlayers).toFixed(1);
@@ -470,7 +478,7 @@
             ); 
 
             // Add GP to the end of the Player Averages table
-            if (viewType !== 'teamAverages') {
+            if (viewType === 'stats') {
                 columnsToDisplay.push({ key: 'games_played', label: 'GP', isNumeric: true, decimal: 0 });
             }
 
@@ -642,7 +650,9 @@
 
             filteredLogs.forEach(log => {
                 // Calculate percentages needed for display in the log
-                const fg_percent = (log['2pm'] + log['3pm']) / (log['2pa'] + log['3pa']);
+                const totalFgAttempted = log['2pa'] + log['3pa'];
+                const totalFgMade = log['2pm'] + log['3pm'];
+                const fg_percent = totalFgAttempted > 0 ? totalFgMade / totalFgAttempted : 0;
                 const ft_percent = log.fta > 0 ? log.ftm / log.fta : 0;
                 
                 const row = tbody.insertRow();
@@ -672,7 +682,18 @@
             
             // Re-render the current view to apply new sort order
             if (currentTabView === 'stats' || currentTabView === 'team') {
-                renderPlayerTable(calculateAverages().filter(p => currentTabView === 'stats' || p.team === currentTeam));
+                // Need to filter first before passing to renderPlayerTable
+                const allAverages = calculateAverages();
+                let dataToRender;
+
+                if (currentTabView === 'stats') {
+                    dataToRender = allAverages;
+                } else if (currentTabView === 'team') {
+                    dataToRender = allAverages.filter(p => p.team === currentTeam);
+                }
+                
+                renderPlayerTable(dataToRender);
+                
             } else if (currentTabView === 'standings') {
                 // Standings sorting is hardcoded in calculateStandings (W/L, then Diff)
                 renderStandingsTable(calculateStandings(currentWeek));
@@ -681,3 +702,47 @@
 
 
         // --- INITIALIZATION ---
+        
+        function populateSelectors() {
+            const seasonSel = document.getElementById('seasonSelector');
+            // Seasons
+            Object.keys(LEAGUE_DATA).forEach(season => {
+                seasonSel.options.add(new Option(season, season, true, season === currentSeason));
+            });
+            
+            // Set initial player logs data
+            playerGameLogs = LEAGUE_DATA[currentSeason].playerGameLogs;
+            
+            // Set initial state based on data
+            const maxWeek = LEAGUE_DATA[currentSeason].gameLogs.reduce((max, log) => Math.max(max, log.week), 0);
+            currentWeek = maxWeek;
+            const divisions = new Set(LEAGUE_DATA[currentSeason].gameLogs.map(l => l.div));
+            currentDivision = divisions.values().next().value; 
+        }
+        
+        async function init() {
+            const statusEl = document.getElementById('dataStatus');
+            statusEl.textContent = 'Loading data...';
+            
+            try {
+                // NOTE: In a real app, you would fetch data here, but we use the mock data for now.
+                // const response = await fetch('league_data.json');
+                // const data = await response.json();
+                // LEAGUE_DATA = data;
+                
+                populateSelectors();
+                setTabView('standings'); // Start on the Standings page
+                statusEl.textContent = 'Data Loaded (Simulated)';
+
+            } catch (error) {
+                console.error("Initialization Error: ", error);
+                statusEl.textContent = 'ERROR: See Console';
+                statusEl.classList.add('bg-red-100', 'text-red-700');
+                statusEl.classList.remove('bg-indigo-100', 'text-indigo-700');
+            }
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>
