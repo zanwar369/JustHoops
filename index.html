@@ -247,7 +247,7 @@
         <!-- Right column: leaders -->
         <aside>
           <div class="card p-4">
-            <h3 class="font-bold text-sm mb-3">Division Leaders (Top 5)</h3>
+            <h3 class="font-bold text-sm mb-3">Division Leaders (Top 5 by Averages)</h3>
             <div id="leagueLeaders" class="space-y-3">
               <!-- injected -->
             </div>
@@ -361,7 +361,7 @@
         const logDiv = (log.division ?? log.Division ?? "");
         return (div === 'all' || String(logDiv) === String(div))
           && (team === 'all' || log.team === team)
-          && (week === 999 || (log.week ?? 0) === week);  // only this week
+          && (week === 999 || Number(log.week ?? 0) === week);  // only this week
       });
     
       return { filteredLogs, filteredLogsInclusive };
@@ -478,6 +478,8 @@
     }
 
     function renderLeagueLeaders(playerLogs){
+        const weekLabel = (CURRENT_FILTERS.week === 'all') ? 'All Weeks' : `Through Week ${CURRENT_FILTERS.week}`;
+        document.querySelector('.card h3').innerHTML = `Division Leaders (Top 5 by Averages) — <span class="muted">${weekLabel}</span>`;
       const { playerAvgs } = calculatePlayerAverages(playerLogs);
       const categories = [
         { key: 'ppg', title: 'Points', format: v => (v ? v.toFixed(1) : '0.0') },
@@ -653,7 +655,7 @@
 
       renderSummaryCards(currentStandings);
       renderStandingsTable(currentStandings);
-      renderLeagueLeaders(filteredLogs);
+      renderLeagueLeaders(filteredLogsInclusive);
       // if a team is active, render team view
       if (CURRENT_FILTERS.team && CURRENT_FILTERS.team !== 'all'){
         renderTeamView();
@@ -669,12 +671,15 @@
         return;
       }
 
-      const { filteredLogs } = getFilteredPlayerData();
-      ELS.teamNameHeader.textContent = teamName;
-
-      const { playerAvgs } = calculatePlayerAverages(filteredLogsInclusive);
-      renderTeamAveragesTable(playerAvgs);
-      renderTeamGameLogsTable(filteredLogs);
+        const { filteredLogs, filteredLogsInclusive } = getFilteredPlayerData();
+        ELS.teamNameHeader.textContent = teamName;
+        
+        // averages should use all logs up to that week
+        const { playerAvgs } = calculatePlayerAverages(filteredLogsInclusive);
+        
+        // render both
+        renderTeamAveragesTable(playerAvgs);
+        renderTeamGameLogsTable(filteredLogs);
       toggleTeamStatView();
       setTabView('team');
     }
@@ -817,6 +822,7 @@
   </script>
 </body>
 </html>
+
 
 
 
