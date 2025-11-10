@@ -342,31 +342,32 @@
       const team = CURRENT_FILTERS.team;
       const week = (CURRENT_FILTERS.week === 'all') ? 999 : parseInt(CURRENT_FILTERS.week, 10);
     
-      if (!season || !LEAGUE_DATA[season]) return { filteredLogs: [], filteredLogsInclusive: [] };
+      if (!season || !LEAGUE_DATA[season]) {
+        return { filteredLogs: [], filteredLogsInclusive: [] };
+      }
     
       const logs = LEAGUE_DATA[season].playerGameLogs || [];
     
-      // Inclusive logs (for averages)
+      // Inclusive logs (for averages & leaders)
       const filteredLogsInclusive = logs.filter(log => {
         if (!log?.name || !log?.team) return false;
         const logDiv = (log.division ?? log.Division ?? "");
-        return (div === 'all' || String(logDiv) === String(div))
-          && (team === 'all' || log.team === team)
-          && ((log.week ?? 0) <= week);  // inclusive up to current week
+        return (div === 'all' || String(logDiv) === String(div)) &&
+               (team === 'all' || log.team === team) &&
+               ((Number(log.week ?? 0)) <= week);
       });
     
-      // Exact week logs (for game log table)
+      // Exact week logs (for game logs)
       const filteredLogs = logs.filter(log => {
         if (!log?.name || !log?.team) return false;
         const logDiv = (log.division ?? log.Division ?? "");
-        return (div === 'all' || String(logDiv) === String(div))
-          && (team === 'all' || log.team === team)
-          && (week === 999 || Number(log.week ?? 0) === week);  // only this week
+        return (div === 'all' || String(logDiv) === String(div)) &&
+               (team === 'all' || log.team === team) &&
+               (week === 999 || Number(log.week ?? 0) === week);
       });
     
       return { filteredLogs, filteredLogsInclusive };
     }
-
     // Calculate player averages safely using nullish coalescing to preserve zeros
     function calculatePlayerAverages(playerLogs){
       const playerStats = {};
@@ -664,22 +665,22 @@
       }
     }
 
-    function renderTeamView(){
+    function renderTeamView() {
       const teamName = CURRENT_FILTERS.team;
       if (!teamName || teamName === 'all') {
         setTabView('standings');
         return;
       }
-
-        const { filteredLogs, filteredLogsInclusive } = getFilteredPlayerData();
-        ELS.teamNameHeader.textContent = teamName;
-        
-        // averages should use all logs up to that week
-        const { playerAvgs } = calculatePlayerAverages(filteredLogsInclusive);
-        
-        // render both
-        renderTeamAveragesTable(playerAvgs);
-        renderTeamGameLogsTable(filteredLogs);
+    
+      const { filteredLogs, filteredLogsInclusive } = getFilteredPlayerData();
+      ELS.teamNameHeader.textContent = teamName;
+    
+      // averages = all weeks up to selected
+      const { playerAvgs } = calculatePlayerAverages(filteredLogsInclusive);
+    
+      renderTeamAveragesTable(playerAvgs);
+      renderTeamGameLogsTable(filteredLogs);
+    
       toggleTeamStatView();
       setTabView('team');
     }
@@ -822,6 +823,7 @@
   </script>
 </body>
 </html>
+
 
 
 
