@@ -336,31 +336,35 @@
       });
     }
 
-    function getFilteredPlayerData(){
+    function getFilteredPlayerData() {
       const season = CURRENT_FILTERS.season;
       const div = CURRENT_FILTERS.division;
       const team = CURRENT_FILTERS.team;
       const week = (CURRENT_FILTERS.week === 'all') ? 999 : parseInt(CURRENT_FILTERS.week, 10);
-
-      if (!season || !LEAGUE_DATA[season]) return { filteredLogs: [], filteredPlayersByTeam: {} };
-
+    
+      if (!season || !LEAGUE_DATA[season]) return { filteredLogs: [], filteredLogsInclusive: [] };
+    
       const logs = LEAGUE_DATA[season].playerGameLogs || [];
-
+    
+      // Inclusive logs (for averages)
+      const filteredLogsInclusive = logs.filter(log => {
+        if (!log?.name || !log?.team) return false;
+        const logDiv = (log.division ?? log.Division ?? "");
+        return (div === 'all' || String(logDiv) === String(div))
+          && (team === 'all' || log.team === team)
+          && ((log.week ?? 0) <= week);  // inclusive up to current week
+      });
+    
+      // Exact week logs (for game log table)
       const filteredLogs = logs.filter(log => {
         if (!log?.name || !log?.team) return false;
         const logDiv = (log.division ?? log.Division ?? "");
         return (div === 'all' || String(logDiv) === String(div))
           && (team === 'all' || log.team === team)
-          && ((log.week ?? 0) <= week);
+          && (week === 999 || (log.week ?? 0) === week);  // only this week
       });
-
-      const filteredPlayersByTeam = filteredLogs.reduce((acc, log) => {
-        if (!acc[log.team]) acc[log.team] = [];
-        acc[log.team].push(log.name);
-        return acc;
-      }, {});
-
-      return { filteredLogs, filteredPlayersByTeam };
+    
+      return { filteredLogs, filteredLogsInclusive };
     }
 
     // Calculate player averages safely using nullish coalescing to preserve zeros
@@ -599,12 +603,13 @@
         CURRENT_FILTERS.division = "all";
       }
 
-      // week options
-      const maxWeek = ALL_PLAYERS.reduce((m,p) => Math.max(m, Number(p.week ?? 0)), 0);
-      let weekOptions = '<option value="all">All Weeks</option>';
-      for (let i=1;i<=maxWeek;i++){ weekOptions += `<option value="${i}">Weeks 1-${i}</option>`; }
-      ELS.weekFilter.innerHTML = weekOptions;
-      ELS.weekFilter.value = "all";
+    // week options (just numeric)
+    const maxWeek = ALL_PLAYERS.reduce((m,p) => Math.max(m, Number(p.week ?? 0)), 0);
+    let weekOptions = '<option value="all">All Weeks</option>';
+    for (let i = 1; i <= maxWeek; i++) {
+      weekOptions += `<option value="${i}">Week ${i}</option>`;
+    }
+    ELS.weekFilter.innerHTML = weekOptions;
 
       populateTeamFilter();
     }
@@ -644,7 +649,7 @@
       const currentStandings = ALL_STANDINGS.filter(s => (CURRENT_FILTERS.division === 'all' || String(s.Division ?? s.division) === String(CURRENT_FILTERS.division))
         && (s.Team && String(s.Team).trim() !== ''));
 
-      const { filteredLogs } = getFilteredPlayerData();
+      const { filteredLogs, filteredLogsInclusive } = getFilteredPlayerData();
 
       renderSummaryCards(currentStandings);
       renderStandingsTable(currentStandings);
@@ -667,7 +672,7 @@
       const { filteredLogs } = getFilteredPlayerData();
       ELS.teamNameHeader.textContent = teamName;
 
-      const { playerAvgs } = calculatePlayerAverages(filteredLogs);
+      const { playerAvgs } = calculatePlayerAverages(filteredLogsInclusive);
       renderTeamAveragesTable(playerAvgs);
       renderTeamGameLogsTable(filteredLogs);
       toggleTeamStatView();
@@ -689,8 +694,7 @@
         ALL_STANDINGS = (LEAGUE_DATA[firstSeason].finalStandings || []).filter(s => (s.Division ?? s.division) && String(s.Division ?? s.division).trim() !== '');
         ALL_PLAYERS = (LEAGUE_DATA[firstSeason].playerGameLogs || []).filter(p => (p.division ?? p.Division) && String(p.division ?? p.Division).trim() !== '');
 
-        ELS.dataStatus.textContent = 'Data Loaded Successfully';
-        ELS.dataStatus.classList.add('text-green-600');
+
 
         populateFilters();
         renderDashboard();
@@ -813,6 +817,7 @@
   </script>
 </body>
 </html>
+
 
 
 
